@@ -1,0 +1,34 @@
+<div class="add-btn-area left">
+    {{project_name}}
+  </div>
+
+<div class="add-btn-area right">
+    <a class="waves-effect waves-light btn teal add-btn" routerLink="add-new-task">add new task</a>
+  </div>
+  
+  <table class="striped projects-table centered container">
+      <thead class="red white-text">
+        <tr>
+            <th>Task Title</th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{task.task_title}}</td>
+            <td>
+              <a class="waves-effect waves-light btn green" (click)="viewTask(task)">details</a>
+            </td>
+            <td>
+              <a class="waves-effect waves-light btn black" (click)="editTask(task)">edit</a>
+            </td>
+            <td>
+              <a class="waves-effect waves-light btn red" (click)="deleteTask(task)">delete</a>
+            </td>
+            <td>
+        </tr>
+      </tbody>
+    </table>

@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col l12 m12 s12">
+    <div class="add-btn-area right">
+      <a routerLink="add-project" class="waves-effect waves-light btn teal add-btn">add new project</a>
+    </div>
+  </div>
+
+  <div class="col l12 m12 s12">
+    <table class="striped projects-table centered">
+      <thead class="red white-text">
+        <tr>
+            <th>Project Name</th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{project.project_name}}</td>
+          <td>
+            <a class="waves-effect waves-light btn green" (click)="viewProject(project)">details</a>
+          </td>
+          <td>
+            <a class="waves-effect waves-light btn black" (click)=editProject(project)>edit</a>
+          </td>
+          <td>
+            <a class="waves-effect waves-light btn red" (click)="deleteProject(project)">delete</a>
+          </td>
+          <td>
+            <a class="waves-effect waves-light btn teal" (click)=addTask(project)>add task</a>
+          </td>
+          <td>
+            <a class="waves-effect waves-light btn green darken-3" (click)="viewTasks(project)">view tasks</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

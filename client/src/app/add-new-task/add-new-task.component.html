@@ -1,0 +1,52 @@
+<form #addTaskForm="ngForm"  (ngSubmit)=addTask(addTaskForm)>
+  <div class="card form-card">
+    <div class="card-action red white-text">
+      <p>New Task</p>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col l12 m12 s12 center new-project-input">
+          Task Title:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="taskname" #taskname="ngModel" [(ngModel)]="taskService.selectedTask.taskname">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Task Description:
+          <div class="input-field inline new-input-field">
+            <textarea class="new-textarea" rows="10" cols="30" name="taskdescription" #taskdescription="ngModel" [(ngModel)]="taskService.selectedTask.taskdescription"></textarea>
+          </div>
+        </div>
+        <div class="col l12 m12 s12 center new-project-input">
+            Reasons for creating the task:
+            <div class="input-field inline new-input-field">
+              <textarea class="new-textarea" rows="10" cols="30" name="taskreason" #taskreason="ngModel" [(ngModel)]="taskService.selectedTask.taskreason"></textarea>
+            </div>
+          </div>
+          <div class="col l12 m12 s12 center new-project-input">
+              Expected results of task:
+              <div class="input-field inline new-input-field">
+                <textarea class="new-textarea" rows="10" cols="30" name="taskresult" #taskresult="ngModel" [(ngModel)]="taskService.selectedTask.taskresult"></textarea>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="card-action">
+      <p class="center">
+          <button type="submit" class="waves-effect waves-light btn red add-btn">add task</button>
+        
+          <a routerLink="/tasks" class="waves-effect waves-light btn black add-btn">cancel</a>
+      </p>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="showSuccessMessage" class="green-text center center-align">
+  Saved Successfully
+</div>
+  
+<div *ngIf="serverErrorMessages" class="red-text center center-align">
+  {{serverErrorMessages}}
+</div>

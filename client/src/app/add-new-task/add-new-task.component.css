@@ -1,0 +1,29 @@
+.form-card {
+    margin: 10%;
+}
+
+.new-project-input  {
+    padding: 0 10%
+}
+
+.title-input {
+    border: 1px solid black !important;
+    padding: 10px !important;
+}
+
+.title-input:active, .new-textarea:active, .title-input:focus, .new-textarea:focus {
+    border: 1px solid red !important;
+}
+
+.new-input-field {
+    width: 100%;
+}
+
+.new-textarea {
+    height: 25%;
+    padding: 10px;
+}
+
+.add-btn {
+    margin: 5%;
+}
