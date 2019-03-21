@@ -1,0 +1,12 @@
+.sidenav-collection {
+    margin-top: 5%;
+    position: fixed;
+}
+
+.main-area {
+    margin-left: 15% !important;
+}
+
+.nav-area {
+    position: fixed;
+}
