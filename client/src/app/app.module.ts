@@ -23,11 +23,17 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DashViewComponent } from './dash-view/dash-view.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 // services
 
 import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,12 @@ import { TasksService } from './services/tasks.service';
     TaskDetailComponent,
     AddProjectComponent,
     EditProjectComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    SignupComponent,
+    LoginComponent,
+    SidenavComponent,
+    DashViewComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +67,8 @@ import { TasksService } from './services/tasks.service';
   ],
   providers: [
     ProjectsService,
-    TasksService
+    TasksService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
-.dash-view {
-    margin: 10%;
+.sidenav-collection {
+    margin-top: 5%;
+    position: fixed;
 }
 
-.dash-view-cards {
-    margin: 10%;
+.main-area {
+    margin-left: 15% !important;
 }

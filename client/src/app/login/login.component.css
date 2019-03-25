@@ -1,0 +1,22 @@
+.form-card {
+    padding: 10% 1% !important;
+}
+
+.signup-area {
+    height: 100% !important;
+    padding: 5% 35%;
+}
+
+.input-box {
+    border: 1px solid white !important;
+    padding: 0 2% !important;
+    margin: 5% !important;
+    margin-bottom: 5% !important;
+    width: 85% !important;
+    color: white;
+}
+
+.input-box:active, .input-box:focus {
+    background-color: white !important;
+    color: black;
+}
