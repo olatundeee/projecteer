@@ -56,7 +56,7 @@ export class ViewProjectsComponent implements OnInit {
 
     // use router to navigate to project details view
 
-    this.router.navigateByUrl('/projects/project-details');
+    this.router.navigateByUrl('/dashboard/projects/project-details');
   }
 
   editProject(project) {
@@ -81,7 +81,7 @@ export class ViewProjectsComponent implements OnInit {
 
     // use router to navigate to edit project view
 
-    this.router.navigateByUrl('/projects/edit-project');
+    this.router.navigateByUrl('/dashboard/projects/edit-project');
   }
 
   // add new task to the project
@@ -92,7 +92,7 @@ export class ViewProjectsComponent implements OnInit {
     localStorage.removeItem('project-id');
     localStorage.setItem('project-id', project._id);
 
-    this.router.navigateByUrl('/tasks/add-new-task');
+    this.router.navigateByUrl('/dashboard/tasks/add-new-task');
   }
 
   // view all tasks listed under this project
@@ -101,7 +101,7 @@ export class ViewProjectsComponent implements OnInit {
     localStorage.removeItem('project-name');
     localStorage.setItem('project-name', project.project_name);
 
-    this.router.navigateByUrl('/tasks');
+    this.router.navigateByUrl('/dashboard/tasks');
   }
 
 }

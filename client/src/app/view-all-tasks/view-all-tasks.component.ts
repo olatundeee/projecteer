@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ViewAllTasksComponent implements OnInit {
 
   tasks;
-  task_name = localStorage.getItem('task-name');
+  project_name = localStorage.getItem('project-name');
 
   constructor(private taskService: TasksService, private router: Router) { }
 
@@ -43,7 +43,7 @@ export class ViewAllTasksComponent implements OnInit {
 
     localStorage.removeItem('task-result');
     localStorage.setItem('task-result', task.task_result);
-    this.router.navigateByUrl('/tasks/task-detail');
+    this.router.navigateByUrl('/dashboard/tasks/task-detail');
   }
 
   // edit and update an existing task
@@ -68,7 +68,7 @@ export class ViewAllTasksComponent implements OnInit {
 
     // use router to navigate to edit task view
 
-    this.router.navigateByUrl('/tasks/edit-task');
+    this.router.navigateByUrl('/dashboard/tasks/edit-task');
   }
 
   // send task data to the service for deletion

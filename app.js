@@ -37,7 +37,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
+
+// routes for users api
 app.use('/users', usersRouter);
+app.post('/register', usersRouter);
+app.post('/login', usersRouter);
 
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);
