@@ -28,12 +28,12 @@ const routes: Routes = [
     component: LandingPageComponent
   },
   {
-    // Route for login a user in to the dashboard area
+    // Route for logging in a user in to the dashboard area
     path: 'login',
     component: LoginComponent
   },
   {
-    // Route for login a user in to the dashboard area
+    // Route for registering a new user
     path: 'register',
     component: SignupComponent
   },

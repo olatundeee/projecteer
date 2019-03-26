@@ -27,6 +27,10 @@ export class ViewProjectsComponent implements OnInit {
   deleteProject(project) {
     this.projectService.deleteProject(project).subscribe();
 
+    // send data to project service to delete all tasks listed under a product
+
+    this.projectService.deleteProjectTasks(project._id).subscribe();
+
     // send api request to retrieve all current projects in database after project has been deleted
 
     this.projectService.getAllProjects().subscribe(res => {
