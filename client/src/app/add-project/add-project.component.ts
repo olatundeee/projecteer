@@ -17,6 +17,9 @@ export class AddProjectComponent implements OnInit {
   constructor(private projectService: ProjectsService) { }
 
   ngOnInit() {
+    const userId = localStorage.getItem('currentUserId');
+
+    console.log(userId);
   }
 
   // grab form data and send to projects service

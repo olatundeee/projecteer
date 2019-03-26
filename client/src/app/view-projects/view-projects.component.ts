@@ -16,7 +16,9 @@ export class ViewProjectsComponent implements OnInit {
   ngOnInit() {
     // send a signal to the projects service to retrieve all currently active projects through api
 
-    this.projectService.getAllProjects().subscribe(res => {
+    const userId = localStorage.getItem('currentUserId');
+
+    this.projectService.getAllUserProjects(userId).subscribe(res => {
       this.projects = res;
       console.log(this.projects);
     });
