@@ -77,4 +77,14 @@ export class ProjectsService {
       project
     });
   }
+
+  // delete all tasks listed under a project
+
+  deleteProjectTasks(projectId) {
+    // send project id to backend to delete all tasks listed under the project
+
+    return this.http.post('http://localhost:3001/delete-project-tasks', {
+      projectId
+    });
+  }
 }

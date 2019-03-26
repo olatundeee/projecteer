@@ -34,6 +34,9 @@ import { LoginComponent } from './login/login.component';
 import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
+import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { UserService } from './services/user.service';
     LoginComponent,
     SidenavComponent,
     DashViewComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    UsersComponent,
+    ProfileComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,

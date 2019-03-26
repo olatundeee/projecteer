@@ -14,6 +14,8 @@ const httpOptions = {
 })
 export class UserService {
 
+  isLogged: boolean;
+
   selectedUser: Signup = {
     email: '',
     username: '',
@@ -64,5 +66,17 @@ export class UserService {
       email: user.email,
       password: user.password
     });
+  }
+
+  // log user out of dashboard area
+
+  logout() {
+    // send http request to backend to log user out
+
+    this.http.get('http://localhost:3001/logout').subscribe(
+      function(result) {
+        console.log(result);
+      }
+    );
   }
 }

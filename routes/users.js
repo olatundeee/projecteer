@@ -91,4 +91,15 @@ router.post('/login', function(req, res) {
   });
 })
 
+// log user out
+
+router.get('/logout', function(req, res){
+  // send response to falsify authentication and nullify token
+
+  res.status(200).send({ 
+    auth: false,
+    token: null
+  })
+})
+
 module.exports = router;

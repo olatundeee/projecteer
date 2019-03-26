@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
 
-  constructor(private userService: UserService, private authService: AuthService, private router: Router) { }
+  constructor(
+    private userService: UserService, private authService: AuthService, private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,7 @@ export class LoginComponent implements OnInit {
   // log user in to dashboard area
 
   login() {
+
     // store form data in form object
 
     const form = {
@@ -52,6 +55,11 @@ export class LoginComponent implements OnInit {
 
           localStorage.removeItem('currentUser');
           localStorage.setItem('currentUser', r.user.username);
+
+          // remove current user id and set a new value for current user id, store in local storage
+
+          localStorage.removeItem('currentUserId');
+          localStorage.setItem('currentUserId', r.user._id);
 
           // if the role of the user returned from the backend is user the navigate to the dashboard area
 

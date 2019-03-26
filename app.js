@@ -42,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.post('/register', usersRouter);
 app.post('/login', usersRouter);
+app.get('/logout', usersRouter);
 
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);
@@ -49,6 +50,7 @@ app.post('/one-task', tasksRouter);
 app.post('/add-new-task', tasksRouter);
 app.post('/update-task', tasksRouter);
 app.post('/remove-task', tasksRouter)
+app.post('/delete-project-tasks', tasksRouter);
 
 // routes for projects api
 app.get('/all-projects', projectsRouter);
