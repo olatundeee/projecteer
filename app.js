@@ -55,6 +55,7 @@ app.post('/delete-project-tasks', tasksRouter);
 // routes for projects api
 app.get('/all-projects', projectsRouter);
 app.post('/one-project', projectsRouter);
+app.post('/all-user-projects', projectsRouter);
 app.post('/add-new-project', projectsRouter);
 app.post('/update-project', projectsRouter);
 app.post('/remove-project', projectsRouter)

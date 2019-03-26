@@ -15,6 +15,22 @@ router.get('/all-projects', function(req, res, next) {
     })
 })
 
+// get all projects associated with one particular user
+
+router.post('/all-user-projects', function(req, res, next) {
+    // look through the database for documents containing a matching user id
+
+    projects.find({
+        project_lead: req.body.userId
+    }, function(err, projects) {
+        if(err) {
+            return res.sendStatus(500);
+        }
+
+        res.json(projects)
+    })
+})
+
 // get one project
 
 router.post('/one-project', function(req, res) {
@@ -35,7 +51,8 @@ router.post('/add-new-project', function(req, res) {
         project_name: req.body.project_name,
         project_problems: req.body.project_problems,
         project_solutions: req.body.project_solutions,
-        project_description: req.body.project_description
+        project_description: req.body.project_description,
+        project_lead: req.body.project_lead
     }, function(err, project) {
         if(err) {
             console.log(err);
@@ -54,7 +71,8 @@ router.post('/update-project', function(req, res) {
         project_name: req.body.project.projectname,
         project_description: req.body.project.projectdescription,
         project_problems: req.body.project.projectproblems,
-        project_solutions: req.body.project.projectsolution
+        project_solutions: req.body.project.projectsolution,
+        project_lead: req.body.project_lead
     }, function(err, project) {
         if(err) {
             return res.sendStatus(500);

@@ -52,7 +52,8 @@ export class ProjectsService {
       project_name: project.projectname,
       project_description: project.projectdescription,
       project_problems: project.projectproblems,
-      project_solutions: project.projectsolution
+      project_solutions: project.projectsolution,
+      project_lead: localStorage.getItem('currentUserId')
     });
   }
 
@@ -60,6 +61,16 @@ export class ProjectsService {
     // retrieve all available projects through the api
 
     return this.http.get('http://localhost:3001/all-projects').pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  // get all projects registered to one user from the api
+
+  getAllUserProjects(userId) {
+    // return all projects containing a matching userid
+
+    return this.http.post('http://localhost:3001/all-user-projects', {
+      userId
+    }).pipe(map(this.extractData), catchError(this.handleError));
   }
 
   deleteProject(project) {
@@ -74,7 +85,8 @@ export class ProjectsService {
     // get new project data and send to the backend for update
 
     return this.http.post('http://localhost:3001/update-project', {
-      project
+      project,
+      project_lead: localStorage.getItem('currentUserId')
     });
   }
 
