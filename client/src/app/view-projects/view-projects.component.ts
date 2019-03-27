@@ -110,4 +110,18 @@ export class ViewProjectsComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/tasks');
   }
 
+  // view details of the team assigned to this project
+
+  viewTeam(project) {
+    // use local storage to store project data in order to assign data to team;
+
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', project._id);
+
+    localStorage.removeItem('project-name');
+    localStorage.setItem('project-name', project.project_name);
+
+    this.router.navigateByUrl('/dashboard/teams');
+  }
+
 }

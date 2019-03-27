@@ -28,15 +28,20 @@ import { DashViewComponent } from './dash-view/dash-view.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { UsersComponent } from './users/users.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TeamComponent } from './team/team.component';
+import { AddNewTeamComponent } from './add-new-team/add-new-team.component';
+import { ViewAllTeamsComponent } from './view-all-teams/view-all-teams.component';
+import { ViewUserTeamsComponent } from './view-user-teams/view-user-teams.component';
+
 
 // services
 
 import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
-import { UsersComponent } from './users/users.component';
-import { ProfileComponent } from './profile/profile.component';
-import { TeamComponent } from './team/team.component';
+import { TeamsService } from './services/teams.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,10 @@ import { TeamComponent } from './team/team.component';
     LandingPageComponent,
     UsersComponent,
     ProfileComponent,
-    TeamComponent
+    TeamComponent,
+    AddNewTeamComponent,
+    ViewAllTeamsComponent,
+    ViewUserTeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +82,8 @@ import { TeamComponent } from './team/team.component';
   providers: [
     ProjectsService,
     TasksService,
-    UserService
+    UserService,
+    TeamsService
   ],
   bootstrap: [AppComponent]
 })
