@@ -17,6 +17,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { DashViewComponent } from './dash-view/dash-view.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { TeamComponent } from './team/team.component';
+import { AddNewTeamComponent } from './add-new-team/add-new-team.component';
+import { ViewAllTeamsComponent } from './view-all-teams/view-all-teams.component';
+import { ViewUserTeamsComponent } from './view-user-teams/view-user-teams.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -45,6 +49,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     children: [
       {
+        // Route to dashboard view
         path: '',
         component: DashViewComponent
       },
@@ -99,6 +104,24 @@ const routes: Routes = [
             // Route for editing an existing task data
             path: 'edit-task',
             component: EditTaskComponent
+          }
+        ]
+      },
+      {
+        path: 'teams',
+        component: TeamComponent,
+        children: [
+          {
+            path: '',
+            component: ViewUserTeamsComponent
+          },
+          {
+            path: 'add-new-team',
+            component: AddNewTeamComponent
+          },
+          {
+            path: 'all-teams',
+            component: ViewAllTeamsComponent
           }
         ]
       }
