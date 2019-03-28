@@ -64,6 +64,8 @@ app.post('/remove-project', projectsRouter)
 // routes for teams api
 app.get('/all-teams', teamsRouter);
 app.post('/add-new-team', teamsRouter);
+app.post('/get-user-team', teamsRouter);
+app.post('/disband-team', teamsRouter);
 
 
 // catch 404 and forward to error handler

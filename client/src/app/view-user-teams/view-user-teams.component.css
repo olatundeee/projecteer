@@ -5,3 +5,11 @@
 .add-btn {
     border-radius: 25px;
 }
+
+.team-info {
+    margin: 5%;
+}
+
+.collection-item-head {
+    margin: 2% !important;
+}
