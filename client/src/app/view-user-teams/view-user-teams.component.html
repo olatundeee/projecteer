@@ -1,12 +1,40 @@
 <div class="row center add-btn-area">
-  <div class="col l4 m4 s12 center">
-    <a class="btn teal add-btn" routerLink="/dashboard/teams/add-new-team">create team</a>
-    <a class="btn red add-btn">disband team</a>
+  <div class="col l6 m6 s12 center">
+    <a class="btn teal add-btn" routerLink="/dashboard/teams/add-new-team" *ngIf="noteamCreated">create team</a>
+    <a class="btn red add-btn" (click)="disbandTeam()" *ngIf="teamCreated">disband team</a>
   </div>
-  <div class="col l4 m4 s12 center">
-    <a class="btn blue add-btn" routerLink="/dashboard/teams/all-teams">view all teams</a>
-  </div>
-  <div class="col l4 m4 s12 center">
+  <div class="col l6 m6 s12 center">
     <a class="btn green add-btn" routerLink="/dashboard/projects">back to projects list</a>
+  </div>
+</div>
+
+<div class="team-info" *ngIf="teamCreated">
+  <div class="card team-info-card">
+    <div class="card-action red">
+      <h6 class="white-text center">Team Information</h6>
+    </div>
+    <div class="card-content center center-align">
+      <ul class="collection">
+        <li class="collection-item center-align">
+            <p class="collection-item-head"><b>Team Name:</b></p>
+            <p>{{teams.team_name}}</p>
+        </li>
+
+        <li class="collection-item center-align">
+            <p class="collection-item-head"><b>Team Project:</b></p>
+            <p>{{teams.team_project}}</p>
+        </li>
+
+        <li class="collection-item center-align">
+            <p class="collection-item-head"><b>Team Lead:</b></p>
+            <p>{{teams.team_lead}}</p>
+        </li>
+
+        <li class="collection-item center-align">
+            <p class="collection-item-head"><b>Team Description:</b></p>
+            <p>{{teams.team_description}}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

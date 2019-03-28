@@ -45,14 +45,48 @@ export class TeamsService {
 
     const projectId = localStorage.getItem('project-id');
 
+    // store the id of the team lead for easy identification
+
+    const teamleadId = localStorage.getItem('currentUserId');
+
     // send team details to backend for new team creation
 
     return this.http.post('http://localhost:3001/add-new-team', {
       team_name: team.teamname,
       team_project: team.teamproject,
       team_lead: team.teamlead,
+      team_lead_id: teamleadId,
       team_description: team.teamdescription,
       team_projectId: projectId
+    });
+  }
+
+  // get data about a team assigned to a particular user & project
+
+  getProjectTeam() {
+    // store value of project id for easy identification of team project
+
+    const projectId = localStorage.getItem('project-id');
+
+    // store the id of the team lead for easy identification
+
+    const teamleadId = localStorage.getItem('currentUserId');
+
+    console.log(projectId, teamleadId);
+
+    // send data to backend to return data on the team associated with the project
+
+    return this.http.post('http://localhost:3001/get-user-team', {
+      team_lead_id: teamleadId,
+      team_projectId: projectId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  // send team id to backend for deletions
+
+  disbandTeam(teamId) {
+    return this.http.post('http://localhost:3001/disband-team', {
+      teamId
     });
   }
 }
