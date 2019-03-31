@@ -1,11 +1,13 @@
-<nav class="red tha-nav">
-  <div class="nav-wrapper">
-    <a href="#" class="brand-logo white-text">Projecteer</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
-      <!--Navigation Links-->
-      <li>
-        <button type="submit" class="btn btn-primary green darken-3 view-chip" (click)="logout()">Logout</button>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div class="nav-area" #stickyMenu [class.sticky] = "sticky">
+    <nav class="red tha-nav">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo white-text">Projecteer</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
+            <!--Navigation Links-->
+            <li>
+              <button type="submit" class="btn btn-primary green darken-3 view-chip" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</div>

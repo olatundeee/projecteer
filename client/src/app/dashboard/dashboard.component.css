@@ -1,8 +1,13 @@
 .sidenav-collection {
-    margin-top: 5%;
     position: fixed;
+    height: 100%;
+    z-index: 10;
 }
 
 .main-area {
     margin-left: 15% !important;
+}
+
+.dash-row {
+    margin-top: 5%;
 }
