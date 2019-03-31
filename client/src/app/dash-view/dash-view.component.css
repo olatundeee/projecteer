@@ -5,3 +5,27 @@
 .dash-view-cards {
     margin: 10%;
 }
+
+.collection-item.avatar.center-align {
+    padding: 0 !important;
+}
+
+.title {
+    padding-top: 10%;
+}
+
+.view-btn {
+    margin-top: 10%;
+}
+
+.view-chip {
+    cursor: pointer;
+}
+
+.rounded {
+    border-radius: 25px !important;
+}
+
+.tab-view {
+    margin: 10%;
+}

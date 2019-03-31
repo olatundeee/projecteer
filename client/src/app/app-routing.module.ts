@@ -21,6 +21,12 @@ import { TeamComponent } from './team/team.component';
 import { AddNewTeamComponent } from './add-new-team/add-new-team.component';
 import { ViewAllTeamsComponent } from './view-all-teams/view-all-teams.component';
 import { ViewUserTeamsComponent } from './view-user-teams/view-user-teams.component';
+import { ViewEveryProjectComponent } from './view-every-project/view-every-project.component';
+import { ViewEveryTaskComponent } from './view-every-task/view-every-task.component';
+import { ViewEveryTeamComponent } from './view-every-team/view-every-team.component';
+import { ViewAllUserProjectsComponent } from './view-all-user-projects/view-all-user-projects.component';
+import { ViewAllUserTasksComponent } from './view-all-user-tasks/view-all-user-tasks.component';
+import { ViewAllUserTeamsComponent } from './view-all-user-teams/view-all-user-teams.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -52,6 +58,36 @@ const routes: Routes = [
         // Route to dashboard view
         path: '',
         component: DashViewComponent
+      },
+      {
+        // Route to view all added projects by all users
+        path: 'view-every-project',
+        component: ViewEveryProjectComponent
+      },
+      {
+        // Route to view all added tasks by all users
+        path: 'view-every-task',
+        component: ViewEveryTaskComponent
+      },
+      {
+        // Route to view all added teams by all users
+        path: 'view-every-team',
+        component: ViewEveryTeamComponent
+      },
+      {
+        // Route to view all added projects by one particular user
+        path: 'view-all-user-projects',
+        component: ViewAllUserProjectsComponent
+      },
+      {
+        // Route to view all added tasks by one user
+        path: 'view-all-user-tasks',
+        component: ViewAllUserTasksComponent
+      },
+      {
+        // Route to view all added teams by one particular user
+        path: 'view-all-user-teams',
+        component: ViewAllTeamsComponent
       },
       {
         // Route for all relating to projects

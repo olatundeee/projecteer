@@ -27,6 +27,21 @@ router.post('/one-task', function(req, res) {
     })
 })
 
+// get all tasks added by one user
+
+router.post('/get-all-user-task', function(req, res) {
+    tasks.find({
+        task_added_by_id: req.body.userId,
+        task_added_by: req.body.currentUser
+    }, function(err, task) {
+        if (err) {
+            return res.sendStatus(500)
+        }
+
+        res.json(task);
+    })
+})
+
 // add new task
 
 router.post('/add-new-task', function(req, res) {

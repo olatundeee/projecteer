@@ -48,6 +48,7 @@ app.get('/logout', usersRouter);
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);
 app.post('/one-task', tasksRouter);
+app.post('/get-all-user-task', tasksRouter);
 app.post('/add-new-task', tasksRouter);
 app.post('/update-task', tasksRouter);
 app.post('/remove-task', tasksRouter)
@@ -62,9 +63,10 @@ app.post('/update-project', projectsRouter);
 app.post('/remove-project', projectsRouter)
 
 // routes for teams api
-app.get('/all-teams', teamsRouter);
+app.get('/get-all-teams', teamsRouter);
 app.post('/add-new-team', teamsRouter);
 app.post('/get-user-team', teamsRouter);
+app.post('/get-all-user-team', teamsRouter);
 app.post('/disband-team', teamsRouter);
 
 
