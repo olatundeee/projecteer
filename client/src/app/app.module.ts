@@ -2,12 +2,11 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CustomMaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MaterialModule } from './material/material.module';
 // components
 
 import { AppComponent } from './app.component';
@@ -34,6 +33,12 @@ import { TeamComponent } from './team/team.component';
 import { AddNewTeamComponent } from './add-new-team/add-new-team.component';
 import { ViewAllTeamsComponent } from './view-all-teams/view-all-teams.component';
 import { ViewUserTeamsComponent } from './view-user-teams/view-user-teams.component';
+import { ViewEveryProjectComponent } from './view-every-project/view-every-project.component';
+import { ViewEveryTaskComponent } from './view-every-task/view-every-task.component';
+import { ViewEveryTeamComponent } from './view-every-team/view-every-team.component';
+import { ViewAllUserProjectsComponent } from './view-all-user-projects/view-all-user-projects.component';
+import { ViewAllUserTasksComponent } from './view-all-user-tasks/view-all-user-tasks.component';
+import { ViewAllUserTeamsComponent } from './view-all-user-teams/view-all-user-teams.component';
 
 
 // services
@@ -68,7 +73,13 @@ import { TeamsService } from './services/teams.service';
     TeamComponent,
     AddNewTeamComponent,
     ViewAllTeamsComponent,
-    ViewUserTeamsComponent
+    ViewUserTeamsComponent,
+    ViewEveryProjectComponent,
+    ViewEveryTaskComponent,
+    ViewEveryTeamComponent,
+    ViewAllUserProjectsComponent,
+    ViewAllUserTasksComponent,
+    ViewAllUserTeamsComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +88,7 @@ import { TeamsService } from './services/teams.service';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    MaterialModule
   ],
   providers: [
     ProjectsService,

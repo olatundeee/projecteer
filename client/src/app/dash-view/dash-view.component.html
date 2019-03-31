@@ -1,80 +1,90 @@
 <div class="row dash-view">
-    <div class="col l6 m6 s6">
-      <div class="card-action">
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <span class="title"><b>Projects</b></span>
-            <h6>9</h6>
+    <div class="col l4 m4 s12">
+      <div class="card-action rounded red white-text">
+        <ul class="collection rounded">
+          <li class="collection-item avatar center-align red white-text">
+            <h5 class="title"><b>All Projects: {{allprojectsNumber}}</b></h5>
           </li>
         </ul>
       </div>
+      <div class="view-btn center">
+        <a class="chip red center white-text view-chip" routerLink="/dashboard/view-every-project">VIEW ALL PROJECTS</a>
+      </div>
     </div>
-    <div class="col l6 m6 s6">
-      <div class="card-action">
-        <ul class="collection">
-          <li class="collection-item avatar">
-            <span class="title"><b>Tasks</b></span>
-            <h6>9</h6>
+    <div class="col l4 m4 s12">
+      <div class="card-action rounded red white-text">
+        <ul class="collection rounded">
+          <li class="collection-item avatar center-align red white-text">
+            <h5 class="title"><b>All Tasks: {{alltasksNumber}}</b></h5>
           </li>
         </ul>
       </div>
-    </div>
-  </div>
-  
-  <div class="row dash-view-cards">
-    <div class="col l6 m6 s12">
-      <div class="card">
-        <div class="card-action red white-text">Current Tasks</div>
-        <div class="card-content">
-          <tbody>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-          </tbody>
-        </div>
-        
-        <div class="card-action">
-          <p class="center-align">
-            <a class="btn red">view all</a>
-          </p>
-        </div>
+      <div class="view-btn center">
+        <a class="chip red center white-text view-chip" routerLink="/dashboard/view-every-task">VIEW ALL TASKS</a>
       </div>
     </div>
-    <div class="col l6 m6 s12">
-      <div class="card">
-        <div class="card-action red white-text">Current Tasks</div>
-        <div class="card-content">
-          <tbody>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-            <tr>
-              <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-            </tr>
-          </tbody>
-        </div>
-        <div class="card-action">
-          <p class="center-align">
-            <a class="btn red">view all</a>
-          </p>
-        </div>
+    <div class="col l4 m4 s12">
+      <div class="card-action rounded red white-text">
+        <ul class="collection rounded">
+          <li class="collection-item avatar center-align red white-text">
+            <h5 class="title"><b>All Teams: {{allteamsNumber}}</b></h5>
+          </li>
+        </ul>
+      </div>
+      <div class="view-btn center">
+        <a class="chip red center white-text view-chip" routerLink="/dashboard/view-every-team">VIEW ALL TEAMS</a>
       </div>
     </div>
   </div>
-  
+
+  <div class="container center">
+    <mat-tab-group>
+      <mat-tab label="YOUR PROJECTS">
+        <div class="card tab-view">
+          <table class="striped centered">
+            <thead class="red white-text">
+                <th>Project Name</th>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let userproject of userprojects">
+                <td>{{userproject.project_name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </mat-tab>
+      <mat-tab label="YOUR TASKS">
+          <div class="card tab-view">
+              <table class="striped centered">
+                <thead class="red white-text">
+                    <th>Task Title</th>
+                </thead>
+    
+                <tbody>
+                  <tr *ngFor="let usertask of usertasks">
+                    <td>{{usertask.task_title}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+      </mat-tab>
+      <mat-tab label="YOUR TEAMS">
+          <div class="card tab-view">
+              <table class="striped centered">
+                <thead class="red white-text">
+                    <th>Team Name</th>
+                </thead>
+    
+                <tbody>
+                  <tr *ngFor="let userteam of userteams">
+                    <td>{{userteam.team_name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
   

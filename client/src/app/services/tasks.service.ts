@@ -49,7 +49,9 @@ export class TasksService {
       task_title: task.taskname,
       task_description: task.taskdescription,
       task_reason: task.taskreason,
-      task_result: task.taskresult
+      task_result: task.taskresult,
+      task_added_by_id: localStorage.getItem('currentUserId'),
+      task_added_by: localStorage.getItem('currentUser')
     });
   }
 
@@ -85,5 +87,21 @@ export class TasksService {
     return this.http.post('http://localhost:3001/remove-task', {
       id
     });
+  }
+
+  // send data to backend to return asks added by a single individual
+
+  getTasksByAddedBy() {
+    // store current username and id for use in the http request
+
+    const userId = localStorage.getItem('currentUserId');
+    const currentUser = localStorage.getItem('currentUser');
+
+    // send http request to backend
+
+    return this.http.post('http://localhost:3001/get-all-user-task', {
+      userId,
+      currentUser
+    }).pipe(map(this.extractData), catchError(this.handleError));
   }
 }

@@ -89,4 +89,22 @@ export class TeamsService {
       teamId
     });
   }
+
+  // get a list of all teams from the database
+
+  getAllTeams() {
+    // send http request to database and extract data sent back as response
+
+    return this.http.get('http://localhost:3001/get-all-teams').pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  // return a list of teams being led by one particular team leader
+
+  getTeamByTeamLead(teamLeadId) {
+     // send data to backend to return data on all teams led by one team lead
+
+     return this.http.post('http://localhost:3001/get-all-user-team', {
+      team_lead_id: teamLeadId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
 }

@@ -3,6 +3,20 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var teams = require('../models/teams.js');
 
+// get all teams
+
+router.get('/get-all-teams', function(req, res, next) {
+    // search through the teams database and return all objects in the database
+
+    teams.find({}, function(err, tasks) {
+        if(err) {
+            return res.sendStatus(500);
+        }
+
+        res.json(tasks)
+    })
+})
+
 // add new team
 
 router.post('/add-new-team', function(req, res, next) {
@@ -35,6 +49,24 @@ router.post('/get-user-team', function(req, res){
     teams.findOne({
         team_lead_id: req.body.team_lead_id,
         team_projectId: req.body.team_projectId
+    }, function(err, team) {
+        // if there is an error return a status 500 response
+
+        if(err) {
+            return res.sendStatus(500);
+        }
+
+        res.json(team);
+    })
+})
+
+router.post('/get-all-user-team', function(req, res){
+    console.log(req.body);
+
+    // search through the teams database and return the team matching the search criteria
+
+    teams.find({
+        team_lead_id: req.body.team_lead_id
     }, function(err, team) {
         // if there is an error return a status 500 response
 
