@@ -1,9 +1,9 @@
 .dash-view {
-    margin: 10%;
+    margin: 5%;
 }
 
-.dash-view-cards {
-    margin: 10%;
+.dash-view-tabs {
+    margin: 5% 1%;
 }
 
 .collection-item.avatar.center-align {
@@ -20,6 +20,7 @@
 
 .view-chip {
     cursor: pointer;
+    border-radius: 25px;
 }
 
 .rounded {
@@ -27,5 +28,5 @@
 }
 
 .tab-view {
-    margin: 10%;
+    margin: 3%;
 }
