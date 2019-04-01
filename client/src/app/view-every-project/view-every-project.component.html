@@ -15,13 +15,13 @@
       <tr *ngFor="let project of projects">
         <td>{{project.project_name}}</td>
         <td>
-          <a class="btn green">details</a>
+          <a class="btn green" (click)="viewProjectDetails(project)">details</a>
         </td>
         <td>
-          <a class="btn teal">view tasks</a>
+          <a class="btn teal" (click)="viewTaskDetails(project)">view tasks</a>
         </td>
         <td>
-          <a class="btn blue">team information</a>
+          <a class="btn blue" (click)="viewTeam(project)">team information</a>
         </td>
       </tr>
     </tbody>
