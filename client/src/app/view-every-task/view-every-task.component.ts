@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TasksService } from '../services/tasks.service';
 
 @Component({
   selector: 'app-view-every-task',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewEveryTaskComponent implements OnInit {
 
-  constructor() { }
+  tasks;
+
+  constructor(private taskService: TasksService) { }
 
   ngOnInit() {
+    // get all tasks stored in the database
+
+    this.taskService.getAllTasks().subscribe(res => {
+      this.tasks = res;
+    });
   }
 
 }
