@@ -1,3 +1,26 @@
-<p>
-  view-every-team works!
-</p>
+<div class="view-area">
+    <div class="add-btn-area right">
+      <a class="btn teal view-btn" routerLink="/dashboard">back to dashboard</a>
+    </div>
+    <table class="centered striped">
+      <thead>
+        <tr class="red white-text">
+          <th>Team Name</th>
+          <th>Team Lead</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{team.team_name}}</td>
+          <td>
+            {{team.team_lead}}
+          </td>
+          <td>
+              <a class="btn green lighten-2 disabled" *ngIf="isTeamLead">joined</a>
+            <a class="btn green" *ngIf="isNotTeamLead">join team</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
