@@ -1,3 +1,25 @@
-<p>
-  view-every-task works!
-</p>
+<div class="view-area">
+    <div class="add-btn-area right">
+      <a class="btn teal view-btn" routerLink="/dashboard">back to dashboard</a>
+    </div>
+    <table class="centered striped">
+      <thead>
+        <tr class="red white-text">
+          <th>Project Name</th>
+          <th>Delegated To</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.task_title}}</td>
+          <td>
+            delegated personnel username goes here
+          </td>
+          <td>
+            <a class="btn green">details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
