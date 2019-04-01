@@ -8,31 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit, AfterViewInit {
+export class NavbarComponent implements OnInit {
 
-  @ViewChild('stickyMenu') menuElement: ElementRef;
-
-  sticky = false;
-  elementPosition: any;
 
 
   constructor(private userService: UserService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.elementPosition = this.menuElement.nativeElement.offsetTop;
-  }
-
-  @HostListener('window:scroll', ['$event'])
-    handleScroll() {
-      const windowScroll = window.pageYOffset;
-      if (windowScroll >= this.elementPosition) {
-        this.sticky = true;
-      } else {
-        this.sticky = false;
-      }
   }
 
   // log user out of dashboard area

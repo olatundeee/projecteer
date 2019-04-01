@@ -1,3 +1,29 @@
-<p>
-  view-every-project works!
-</p>
+<div class="view-area">
+  <div class="add-btn-area right">
+    <a class="btn teal view-btn" routerLink="/dashboard">back to dashboard</a>
+  </div>
+  <table class="centered striped">
+    <thead>
+      <tr class="red white-text">
+        <th>Project Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{project.project_name}}</td>
+        <td>
+          <a class="btn green">details</a>
+        </td>
+        <td>
+          <a class="btn teal">view tasks</a>
+        </td>
+        <td>
+          <a class="btn blue">team information</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
