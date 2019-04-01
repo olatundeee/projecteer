@@ -1,3 +1,18 @@
 .tha-nav {
-    padding: 0 10%;
+    padding: 0 3%;
+}
+
+.view-chip {
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.sticky{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-area {
+    width: 100% !important;
 }
