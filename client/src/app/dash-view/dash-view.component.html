@@ -56,10 +56,10 @@
                 <td>{{userproject.project_name}}</td>
                 <td>progress bar goes here</td>
                 <td>
-                  <a class="btn blue view-chip white-text">DETAILS</a>
+                  <a class="btn blue view-chip white-text" (click)="viewUserProject(userproject)">DETAILS</a>
                 </td>
                 <td>
-                  <a class="btn indigo view-chip white-text">VIEW TASKS</a>
+                  <a class="btn indigo view-chip white-text" (click)="viewUserProjectTasks(userproject)">VIEW TASKS</a>
                 </td>
               </tr>
             </tbody>
@@ -82,7 +82,7 @@
                     <td>{{usertask.task_title}}</td>
                     <td>Delegated personnel here</td>
                     <td>
-                      <a class="btn teal view-chip white-text">DETAILS</a>
+                      <a class="btn teal view-chip white-text" (click)="viewUserTask(usertask)">DETAILS</a>
                     </td>
                   </tr>
                 </tbody>
@@ -104,7 +104,7 @@
                   <tr *ngFor="let userteam of userteams">
                     <td>{{userteam.team_name}}</td>
                     <td>
-                      <a class="chip green view-chip white-text">DETAILS</a>
+                      <a class="btn green view-chip white-text" (click)="viewUserTeam(userteam)">DETAILS</a>
                     </td>
                     <td>
                       <a class="btn green darken-3 view-chip white-text">TEAM MEMBERS</a>
