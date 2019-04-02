@@ -106,4 +106,44 @@ export class TeamsService {
       team_lead_id: teamLeadId
     }).pipe(map(this.extractData), catchError(this.handleError));
   }
+
+  // receive team parameters to send to database to creat a new team member
+
+  addTeamMember(
+    currentUser,
+    currentUserId,
+    currentTeam,
+    currentTeamId,
+    currentProject,
+    currentProjectId
+  ) {
+    return this.http.post('http://localhost:3001/join-team', {
+      currentUser,
+      currentUserId,
+      currentTeam,
+      currentTeamId,
+      currentProject,
+      currentProjectId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  // receive team parameters to send to database to confirm team member
+
+  confirmTeamMember(
+    currentUser,
+    currentUserId,
+    currentTeam,
+    currentTeamId,
+    currentProject,
+    currentProjectId
+  ) {
+    return this.http.post('http://localhost:3001/confirm-team-member', {
+      currentUser,
+      currentUserId,
+      currentTeam,
+      currentTeamId,
+      currentProject,
+      currentProjectId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
 }

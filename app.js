@@ -12,6 +12,7 @@ var usersRouter = require('./routes/users');
 var tasksRouter = require('./routes/tasks');
 var projectsRouter = require('./routes/projects');
 var teamsRouter = require('./routes/teams');
+var teamMembersRouter = require('./routes/team-members');
 
 var app = express();
 
@@ -69,6 +70,10 @@ app.post('/add-new-team', teamsRouter);
 app.post('/get-user-team', teamsRouter);
 app.post('/get-all-user-team', teamsRouter);
 app.post('/disband-team', teamsRouter);
+
+// routes for team members
+app.post('/join-team', teamMembersRouter);
+app.post('/confirm-team-member', teamMembersRouter);
 
 
 // catch 404 and forward to error handler
