@@ -27,10 +27,10 @@
               <a class="waves-effect waves-light btn green" (click)="viewTask(task)">details</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn black" (click)="editTask(task)">edit</a>
+              <a class="waves-effect waves-light btn black" (click)="editTask(task)" *ngIf="isCurrentUser">edit</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn red" (click)="deleteTask(task)">delete</a>
+              <a class="waves-effect waves-light btn red" (click)="deleteTask(task)" *ngIf="isCurrentUser">delete</a>
             </td>
             <td>
         </tr>

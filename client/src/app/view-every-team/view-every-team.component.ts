@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 export class ViewEveryTeamComponent implements OnInit {
 
   teams;
-  isTeamLead;
-  isNotTeamLead;
 
   constructor(private teamService: TeamsService, private router: Router) { }
 
@@ -21,17 +19,6 @@ export class ViewEveryTeamComponent implements OnInit {
     this.teamService.getAllTeams().subscribe(res => {
       this.teams = res;
       console.log(res);
-
-      const currentUser = localStorage.getItem('currentUser');
-
-      this.teams.forEach(team => {
-        if (currentUser === team.team_lead) {
-          this.isTeamLead = true;
-        } else {
-          this.isNotTeamLead = true;
-        }
-      });
-
     });
   }
 

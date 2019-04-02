@@ -12,15 +12,29 @@ export class ViewAllTasksComponent implements OnInit {
 
   tasks;
   project_name = localStorage.getItem('project-name');
+  isCurrentUser;
 
   constructor(private taskService: TasksService, private router: Router) { }
 
   ngOnInit() {
+    const projectId = localStorage.getItem('project-id');
+
     // access task service and return all available tasks
-    this.taskService.getAllTasks().subscribe(res => {
+    this.taskService.getTasksByProject(projectId).subscribe(res => {
       console.log(res);
 
       this.tasks = res;
+
+      // disable display for delete and edit button if current user is not responsible for adding the tasks
+
+      const currentUser = localStorage.getItem('currentUser');
+      const currentUserId = localStorage.getItem('currentUserId');
+
+      this.tasks.forEach(task => {
+        if (task.task_added_by === currentUser && task.task_added_by_id === currentUserId) {
+          this.isCurrentUser = true;
+        }
+      });
     });
   }
 

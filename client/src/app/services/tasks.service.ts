@@ -104,4 +104,12 @@ export class TasksService {
       currentUser
     }).pipe(map(this.extractData), catchError(this.handleError));
   }
+
+  // return all tasks listed under a particular project
+
+  getTasksByProject(projectId) {
+    return this.http.post('http://localhost:3001/get-project-tasks', {
+      projectId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
 }

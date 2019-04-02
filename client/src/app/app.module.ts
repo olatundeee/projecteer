@@ -47,6 +47,7 @@ import { ProjectsService } from './services/projects.service';
 import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
+import { TeamMembersComponent } from './team-members/team-members.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { TeamsService } from './services/teams.service';
     ViewEveryTeamComponent,
     ViewAllUserProjectsComponent,
     ViewAllUserTasksComponent,
-    ViewAllUserTeamsComponent
+    ViewAllUserTeamsComponent,
+    TeamMembersComponent
   ],
   imports: [
     BrowserModule,
