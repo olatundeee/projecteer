@@ -116,8 +116,8 @@ export class DashViewComponent implements OnInit {
   // view the tasks listed under the user's projects
 
   viewUserProjectTasks(userproject) {
-    localStorage.removeItem('project-name');
-    localStorage.setItem('project-name', userproject.project_name);
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', userproject._id);
 
     // use router to navigate to project tasks view
 

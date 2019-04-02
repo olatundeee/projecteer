@@ -51,6 +51,9 @@ export class ViewEveryProjectComponent implements OnInit {
     localStorage.removeItem('project-name');
     localStorage.setItem('project-name', project.project_name);
 
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', project._id);
+
     // use router to navigate to tasks list view
     this.router.navigateByUrl('/dashboard/tasks');
   }

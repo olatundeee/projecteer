@@ -11,10 +11,14 @@ export class ViewUserTeamsComponent implements OnInit {
   teams;
   teamCreated;
   noteamCreated;
+  isTeamLead;
+  isNotTeamLead;
 
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit() {
+    this.isNotTeamLead = true;
+
     // access teams service method getUserTeams to return data on the team associated with the project
 
     this.teamsService.getProjectTeam().subscribe(res => {

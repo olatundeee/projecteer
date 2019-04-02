@@ -53,6 +53,7 @@ app.post('/add-new-task', tasksRouter);
 app.post('/update-task', tasksRouter);
 app.post('/remove-task', tasksRouter)
 app.post('/delete-project-tasks', tasksRouter);
+app.post('/get-project-tasks', tasksRouter);
 
 // routes for projects api
 app.get('/all-projects', projectsRouter);

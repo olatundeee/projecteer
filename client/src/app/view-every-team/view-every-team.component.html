@@ -8,7 +8,6 @@
           <th>Team Name</th>
           <th>Team Lead</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -16,10 +15,6 @@
           <td>{{team.team_name}}</td>
           <td>
             {{team.team_lead}}
-          </td>
-          <td>
-              <a class="btn green view-btn lighten-2 disabled" *ngIf="isTeamLead">joined</a>
-            <a class="btn green view-btn" *ngIf="isNotTeamLead">join team</a>
           </td>
           <td>
             <a class="btn green view-btn lighten-2" (click)="viewTeam(team)">team details</a>

@@ -77,7 +77,6 @@ export class TeamsService {
     // send data to backend to return data on the team associated with the project
 
     return this.http.post('http://localhost:3001/get-user-team', {
-      team_lead_id: teamleadId,
       team_projectId: projectId
     }).pipe(map(this.extractData), catchError(this.handleError));
   }

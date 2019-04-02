@@ -47,7 +47,6 @@ router.post('/get-user-team', function(req, res){
     // search through the teams database and return the team matching the search criteria
 
     teams.findOne({
-        team_lead_id: req.body.team_lead_id,
         team_projectId: req.body.team_projectId
     }, function(err, team) {
         // if there is an error return a status 500 response

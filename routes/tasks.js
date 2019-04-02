@@ -101,4 +101,25 @@ router.post('/delete-project-tasks', function(req, res) {
     })
 })
 
+// find all  tasks associated with the received project id
+
+router.post('/get-project-tasks', function(req, res) {
+    console.log(req.body);
+
+    // look for the matching tasks in the tasks db and return all of them as response
+    tasks.find({
+        project_id: req.body.projectId
+    }, function(err, task) {
+        // if an error is encountered return 500 status 
+
+        if(err) {
+            return res.sendStatus(500);
+        }
+
+        // upon successful search return json object
+
+        res.json(task);
+    })
+})
+
 module.exports = router;
