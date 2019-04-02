@@ -5,7 +5,7 @@
   </div>
   <div class="col l3 m3 s12 center">
     <a class="btn green add-btn lighten-2 disabled" *ngIf="isTeamLead">joined</a>
-    <a class="btn green lighten-2 add-btn" *ngIf="isNotTeamLead">join team</a>
+    <a class="btn green lighten-2 add-btn" *ngIf="isNotTeamLead" (click)="joinTeam()">join team</a>
   </div>
   <div class="col l3 m3 s12 center">
     <a class="btn blue add-btn">team members</a>
