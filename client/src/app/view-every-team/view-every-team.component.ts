@@ -33,6 +33,26 @@ export class ViewEveryTeamComponent implements OnInit {
     localStorage.removeItem('project-name');
     localStorage.setItem('project-name', team.team_project);
 
+    // store team id in local storage for easy identification
+
+    localStorage.removeItem('currentTeamId');
+    localStorage.setItem('currentTeamId', team._id);
+
+    // store team name in local storage for easy identification
+
+    localStorage.removeItem('currentTeam');
+    localStorage.setItem('currentTeam', team.team_name);
+
+    // store team project in local storage for easy identification
+
+    localStorage.removeItem('currentProject');
+    localStorage.setItem('currentProject', team.team_project);
+
+    // store team project in local storage for easy identification
+
+    localStorage.removeItem('currentProjectId');
+    localStorage.setItem('currentProjectId', team.team_projectId);
+
     this.router.navigateByUrl('/dashboard/teams');
   }
 
