@@ -66,6 +66,11 @@ export class LoginComponent implements OnInit {
           localStorage.removeItem('currentUserRole');
           localStorage.setItem('currentUserRole', r.user.role);
 
+          // set the logged in confirmation value
+
+          localStorage.removeItem('isLogged');
+          localStorage.setItem('isLogged', 'userLoggedIn');
+
           // navigate to the dashboard area
 
           this.router.navigateByUrl('/dashboard');
