@@ -5,4 +5,7 @@
   <li class="collection-item red white-text">
     <a routerLink="/dashboard/projects" class="white-text">Projects</a>
   </li>
+  <li class="collection-item red white-text" *ngIf="isUserAdmin">
+    <a routerLink="/dashboard/users" class="white-text">Users</a>
+  </li>
 </ul>

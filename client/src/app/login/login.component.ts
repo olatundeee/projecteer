@@ -61,11 +61,14 @@ export class LoginComponent implements OnInit {
           localStorage.removeItem('currentUserId');
           localStorage.setItem('currentUserId', r.user._id);
 
-          // if the role of the user returned from the backend is user the navigate to the dashboard area
+          // set the value for current user role in local storage
 
-          if (r.user.role === 'User') {
-            this.router.navigateByUrl('/dashboard');
-          }
+          localStorage.removeItem('currentUserRole');
+          localStorage.setItem('currentUserRole', r.user.role);
+
+          // navigate to the dashboard area
+
+          this.router.navigateByUrl('/dashboard');
         }
       },
       r => {
