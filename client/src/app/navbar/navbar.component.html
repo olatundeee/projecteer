@@ -4,7 +4,8 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
       <!--Navigation Links-->
       <li>
-        <button type="submit" class="btn btn-primary green darken-3 view-chip" (click)="logout()">Logout</button>
+          <button type="submit" class="btn btn-primary green darken-3 view-chip" routerLink="/login" *ngIf="userLoggedOut">Login</button>
+        <button type="submit" class="btn btn-primary green darken-3 view-chip" (click)="logout()" *ngIf="userLoggedIn">Logout</button>
       </li>
     </ul>
   </div>
