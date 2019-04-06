@@ -27,6 +27,11 @@ import { ViewEveryTeamComponent } from './view-every-team/view-every-team.compon
 import { ViewAllUserProjectsComponent } from './view-all-user-projects/view-all-user-projects.component';
 import { ViewAllUserTasksComponent } from './view-all-user-tasks/view-all-user-tasks.component';
 import { ViewAllUserTeamsComponent } from './view-all-user-teams/view-all-user-teams.component';
+import { TeamMembersComponent } from './team-members/team-members.component';
+import { UsersComponent } from './users/users.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -158,6 +163,27 @@ const routes: Routes = [
           {
             path: 'all-teams',
             component: ViewAllTeamsComponent
+          },
+          {
+            path: 'team-members',
+            component: TeamMembersComponent
+          }
+        ]
+      },
+      {
+        // Route for viewing user information and data
+        path: 'users',
+        component: UsersComponent,
+        children: [
+          {
+            // Route for viewing list of users
+            path: '',
+            component: UserListComponent
+          },
+          {
+            // Route for viewing user profile
+            path: 'profile',
+            component: ProfileComponent
           }
         ]
       }

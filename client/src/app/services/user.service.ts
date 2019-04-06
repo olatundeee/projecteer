@@ -79,4 +79,15 @@ export class UserService {
       }
     );
   }
+
+  // update role of the user with username administrator, new role is `administrator`
+
+  makeUserAdmin() {
+    console.log(localStorage.getItem('currentUser'));
+    console.log(localStorage.getItem('currentUserId'));
+
+    // send http request to backend
+
+    return this.http.post('http://localhost:3001/create-admin', {});
+  }
 }

@@ -8,7 +8,7 @@
     <a class="btn green lighten-2 add-btn" *ngIf="isNotTeamLead" (click)="joinTeam()">join team</a>
   </div>
   <div class="col l3 m3 s12 center">
-    <a class="btn blue add-btn">team members</a>
+    <a routerLink="/dashboard/teams/team-members" class="btn blue add-btn">team members</a>
   </div>
   <div class="col l3 m3 s12 center">
     <a class="btn green add-btn" routerLink="/dashboard/projects">back to projects list</a>

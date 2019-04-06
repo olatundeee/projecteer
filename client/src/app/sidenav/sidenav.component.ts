@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  isUserAdmin;
+
   constructor() { }
 
   ngOnInit() {
+    // get the user role for currently logged in user
+
+    const isAdmin = localStorage.getItem('currentUserRole');
+
+    console.log('User role: ' + isAdmin);
+
+    // if currently logged in user is the administrator, display the users collection list item
+
+    if (isAdmin === 'Administrator') {
+      this.isUserAdmin = true;
+    }
   }
 
 }

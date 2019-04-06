@@ -45,6 +45,7 @@ app.use('/users', usersRouter);
 app.post('/register', usersRouter);
 app.post('/login', usersRouter);
 app.get('/logout', usersRouter);
+app.post('/create-admin', usersRouter);
 
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);

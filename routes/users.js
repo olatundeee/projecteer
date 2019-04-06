@@ -102,4 +102,19 @@ router.get('/logout', function(req, res){
   })
 })
 
+// // update role of the user with username administrator, new role is `administrator`
+
+router.post('/create-admin', function(req, res) {
+  users.updateOne({
+    username: 'administrator'
+  },{ 
+    $set: {
+    role: 'Administrator'
+  }
+}, function(err, user){
+  console.log(user);
+  console.log('Admin role updated');
+})
+})
+
 module.exports = router;
