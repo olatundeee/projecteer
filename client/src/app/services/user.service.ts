@@ -106,4 +106,18 @@ export class UserService {
       profile
     });
   }
+
+  // get profile details from backend api/database
+
+  getProfileDetails() {
+    const userId = localStorage.getItem('currentUserId');
+    const username = localStorage.getItem('currentUser');
+
+    // send http request to return profile details for one particular user
+
+    return this.http.post('http://localhost:3001/get-profile-details', {
+      userId,
+      username
+    });
+  }
 }

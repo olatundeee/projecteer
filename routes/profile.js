@@ -33,4 +33,27 @@ router.post('/create-profile', function(req, res) {
     })
 })
 
+// get profile details for logged in user
+
+router.post('/get-profile-details', function(req, res) {
+    console.log(req.body);
+
+    // search profile database for document matching the provided userid and username
+
+    profile.findOne({
+        userId: req.body.userId,
+        username: req.body.username
+    }, function(err, profile) {
+        // if there is an error return a 500 status
+        if(err) {
+            console.log(err);
+            return res.sendStatus(500);
+        }
+
+        // if the profile addition is successful return a json object of the profile
+
+        res.json(profile)
+    })
+})
+
 module.exports = router;
