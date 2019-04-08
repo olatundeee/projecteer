@@ -11,7 +11,8 @@ var profileSchema = new mongoose.Schema({
     linkedin: String,
     facebook: String,
     twitter: String,
-    skype: String
+    skype: String,
+    profile_added: Boolean
 })
 
 module.exports = mongoose.model('Profile', profileSchema);

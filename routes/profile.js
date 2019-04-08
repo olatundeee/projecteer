@@ -19,7 +19,8 @@ router.post('/create-profile', function(req, res) {
         linkedin: req.body.profile.linkedin,
         facebook: req.body.profile.facebook,
         twitter: req.body.profile.twitter,
-        skype: req.body.profile.skype
+        skype: req.body.profile.skype,
+        profile_added: true
     },  function(err, profile) {
         // if there is an error return a 500 status
         if(err) {
@@ -75,7 +76,8 @@ router.post('/edit-profile', function(req, res) {
         linkedin: req.body.profile.linkedin,
         facebook: req.body.profile.facebook,
         twitter: req.body.profile.twitter,
-        skype: req.body.profile.skype
+        skype: req.body.profile.skype,
+        profile_added: true
     }, function(err, profile) {
         // if there is an error return a 500 status
         if(err) {

@@ -1,7 +1,7 @@
 <div class="content-area">
   <div class="row center">
     <div class="col l6 m6 s12">
-      <a class="btn view-btn center teal" routerLink="/dashboard/users/add-profile">add bio</a>
+      <a class="btn view-btn center teal" routerLink="/dashboard/users/add-profile" *ngIf="displayAddBio">add bio</a>
     </div>
     <div class="col l6 m6 s12">
       <a class="btn view-btn center green lighten-2" (click)="editBio(profile)">edit bio</a>
