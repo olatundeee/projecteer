@@ -1,3 +1,33 @@
-<p>
-  user-list works!
-</p>
+<div class="row">
+    <div class="col l12 m12 s12">
+      <table class="striped projects-table centered">
+        <thead class="red white-text">
+          <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th> </th>
+              <th> </th>
+              <th> </th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <a class="waves-effect waves-light btn green lighten-2">profile</a>
+            </td>
+            <td>
+              <a class="waves-effect waves-light btn teal">projects</a>
+            </td>
+            <td>
+              <a class="waves-effect waves-light btn blue">teams</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  

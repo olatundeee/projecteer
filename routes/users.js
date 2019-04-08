@@ -117,4 +117,22 @@ router.post('/create-admin', function(req, res) {
 })
 })
 
+// get all registered users
+
+router.get('/all-users', function(req, res) {
+  // search the database to return an array of all users in the collection
+
+  users.find({}, function(err, users) {
+    // if an error is encounter 500 status is returned
+
+    if(err) {
+      return res.status(500).send('Server error encountered');
+    }
+
+    // return all users in json format
+
+    res.json(users)
+  })
+})
+
 module.exports = router;
