@@ -50,6 +50,7 @@ app.post('/create-admin', usersRouter);
 
 // routes for user profile api
 app.post('/create-profile', profileRouter);
+app.post('/get-profile-details', profileRouter);
 
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);
