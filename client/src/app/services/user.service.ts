@@ -120,4 +120,20 @@ export class UserService {
       username
     });
   }
+
+  // get edited data from edit profile component to send to api for user profile editing
+
+  editProfile(profile) {
+    const userId = localStorage.getItem('currentUserId');
+    const username = localStorage.getItem('currentUser');
+    console.log(profile);
+
+    // send profile data to backend api
+
+    return this.http.post('http://localhost:3001/edit-profile', {
+      userId,
+      username,
+      profile
+    });
+  }
 }

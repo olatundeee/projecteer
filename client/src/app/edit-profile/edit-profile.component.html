@@ -1,3 +1,90 @@
-<p>
-  edit-profile works!
-</p>
+<form>
+  <div class="card form-card">
+    <div class="card-action red white-text">
+      <p>Add Bio</p>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col l12 m12 s12 center new-project-input">
+          Full Name:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="fullname" [(ngModel)]="fullname">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Address:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="address" [(ngModel)]="address">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Phone Number:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="phonenumber" [(ngModel)]="phonenumber">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Write in details about skills that you possess:
+          <div class="input-field inline new-input-field">
+            <textarea class="new-textarea" rows="10" cols="30" name="skills" [(ngModel)]="skills"></textarea>
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Instagram:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="instagram" [(ngModel)]="instagram">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          LinkedIn:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="linkedin" [(ngModel)]="linkedin">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Facebook:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="facebook" [(ngModel)]="facebook">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Twitter:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="twitter" [(ngModel)]="twitter">
+          </div>
+        </div>
+
+        <div class="col l12 m12 s12 center new-project-input">
+          Skype:
+          <div class="input-field inline new-input-field">
+            <input id="projects_name" type="text" class="title-input" name="skype" [(ngModel)]="skype">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card-action">
+      <p class="center">
+          <button type="submit" class="waves-effect waves-light btn red add-btn" (click)="editProfile()">edit bio</button>
+        
+          <a routerLink="/dashboard/users/profile" class="waves-effect waves-light btn black add-btn">back to profile</a>
+      </p>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="showSuccessMessage" class="green-text center center-align">
+  Saved Successfully
+</div>
+  
+<div *ngIf="serverErrorMessages" class="red-text center center-align">
+  {{serverErrorMessages}}
+</div>
