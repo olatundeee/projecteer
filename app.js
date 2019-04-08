@@ -9,6 +9,7 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var profileRouter = require('./routes/profile');
 var tasksRouter = require('./routes/tasks');
 var projectsRouter = require('./routes/projects');
 var teamsRouter = require('./routes/teams');
@@ -47,6 +48,9 @@ app.post('/login', usersRouter);
 app.get('/logout', usersRouter);
 app.post('/create-admin', usersRouter);
 
+// routes for user profile api
+app.post('/create-profile', profileRouter);
+
 // routes for tasks api
 app.get('/all-tasks', tasksRouter);
 app.post('/one-task', tasksRouter);
@@ -63,7 +67,7 @@ app.post('/one-project', projectsRouter);
 app.post('/all-user-projects', projectsRouter);
 app.post('/add-new-project', projectsRouter);
 app.post('/update-project', projectsRouter);
-app.post('/remove-project', projectsRouter)
+app.post('/remove-project', projectsRouter);
 
 // routes for teams api
 app.get('/get-all-teams', teamsRouter);
