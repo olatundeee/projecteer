@@ -90,4 +90,20 @@ export class UserService {
 
     return this.http.post('http://localhost:3001/create-admin', {});
   }
+
+  // get profile data from add profile component and send to api to add profile information to database
+
+  addProfile(profile) {
+    const userId = localStorage.getItem('currentUserId');
+    const username = localStorage.getItem('currentUser');
+    console.log(profile);
+
+    // send profile data to backend api
+
+    return this.http.post('http://localhost:3001/create-profile', {
+      userId,
+      username,
+      profile
+    });
+  }
 }

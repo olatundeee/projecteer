@@ -31,7 +31,8 @@ import { TeamMembersComponent } from './team-members/team-members.component';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { AddProfileComponent } from './add-profile/add-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -184,6 +185,16 @@ const routes: Routes = [
             // Route for viewing user profile
             path: 'profile',
             component: ProfileComponent
+          },
+          {
+            // Route for adding user profile
+            path: 'add-profile',
+            component: AddProfileComponent
+          },
+          {
+            // Route for editing user profile
+            path: 'edit-profile',
+            component: EditProfileComponent
           }
         ]
       }
