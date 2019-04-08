@@ -136,4 +136,12 @@ export class UserService {
       profile
     });
   }
+
+  // return a list of all users from the database
+
+  getAllUsers() {
+    // send http request to retrieve all users to api
+
+    return this.http.get('http://localhost:3001/all-users').pipe(map(this.extractData), catchError(this.handleError));
+  }
 }

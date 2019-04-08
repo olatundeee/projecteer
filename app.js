@@ -47,6 +47,7 @@ app.post('/register', usersRouter);
 app.post('/login', usersRouter);
 app.get('/logout', usersRouter);
 app.post('/create-admin', usersRouter);
+app.get('/all-users', usersRouter);
 
 // routes for user profile api
 app.post('/create-profile', profileRouter);

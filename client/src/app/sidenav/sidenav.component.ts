@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  username = localStorage.getItem('currentUser');
   isUserAdmin;
 
   constructor() { }
