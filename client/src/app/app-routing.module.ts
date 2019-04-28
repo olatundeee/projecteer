@@ -33,6 +33,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AdminViewProfileComponent } from './admin-view-profile/admin-view-profile.component';
+import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-projects.component';
+import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -119,6 +122,10 @@ const routes: Routes = [
             // Route for editing project details
             path: 'edit-project',
             component: EditProjectComponent
+          },
+          {
+            path: 'admin-view-projects',
+            component: AdminViewProjectsComponent
           }
         ]
       },
@@ -168,6 +175,10 @@ const routes: Routes = [
           {
             path: 'team-members',
             component: TeamMembersComponent
+          },
+          {
+            path: 'admin-view-team',
+            component: AdminViewTeamComponent
           }
         ]
       },
@@ -195,6 +206,10 @@ const routes: Routes = [
             // Route for editing user profile
             path: 'edit-profile',
             component: EditProfileComponent
+          },
+          {
+            path: 'admin-view-profile',
+            component: AdminViewProfileComponent
           }
         ]
       }
