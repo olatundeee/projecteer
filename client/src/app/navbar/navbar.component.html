@@ -1,8 +1,22 @@
 <nav class="red tha-nav">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo white-text">Projecteer</a>
+
+
     <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
       <!--Navigation Links-->
+      <li>
+        <a href="#">Projects</a>
+      </li>
+
+      <li>
+        <a href="#">Tasks</a>
+      </li>
+
+      <li>
+        <a href="#">Teams</a>
+      </li>
+      
       <li>
           <button type="submit" class="btn btn-primary green darken-3 view-chip" routerLink="/login" *ngIf="userLoggedOut">Login</button>
         <button type="submit" class="btn btn-primary green darken-3 view-chip" (click)="logout()" *ngIf="userLoggedIn">Logout</button>

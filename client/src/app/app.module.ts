@@ -51,6 +51,10 @@ import { TeamMembersComponent } from './team-members/team-members.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AdminViewProfileComponent } from './admin-view-profile/admin-view-profile.component';
+import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-projects.component';
+import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
+import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +91,11 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     TeamMembersComponent,
     UserListComponent,
     AddProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AdminViewProfileComponent,
+    AdminViewProjectsComponent,
+    AdminViewTeamComponent,
+    RightSidenavComponent
   ],
   imports: [
     BrowserModule,

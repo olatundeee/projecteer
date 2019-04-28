@@ -13,16 +13,19 @@
     
         <tbody>
           <tr *ngFor="let user of users">
-            <td>{{user.username}}</td>
+            <td>
+              {{user.username}}<br>
+              <i>{{user.role}}</i>
+            </td>
             <td>{{user.email}}</td>
             <td>
-              <a class="waves-effect waves-light btn green lighten-2">profile</a>
+              <a class="waves-effect waves-light btn green lighten-2" routerLink="/dashboard/users/admin-view-profile">profile</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn teal">projects</a>
+              <a class="waves-effect waves-light btn teal" routerLink="/dashboard/projects/admin-view-projects">projects</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn blue">teams</a>
+              <a class="waves-effect waves-light btn blue" routerLink="/dashboard/teams/admin-view-team">teams</a>
             </td>
           </tr>
         </tbody>
