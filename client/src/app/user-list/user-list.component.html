@@ -19,13 +19,13 @@
             </td>
             <td>{{user.email}}</td>
             <td>
-              <a class="waves-effect waves-light btn green lighten-2" routerLink="/dashboard/users/admin-view-profile">profile</a>
+              <a class="waves-effect waves-light btn green lighten-2" (click)="adminViewProfile(user)">profile</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn teal" routerLink="/dashboard/projects/admin-view-projects">projects</a>
+              <a class="waves-effect waves-light btn teal">projects</a>
             </td>
             <td>
-              <a class="waves-effect waves-light btn blue" routerLink="/dashboard/teams/admin-view-team">teams</a>
+              <a class="waves-effect waves-light btn blue">teams</a>
             </td>
           </tr>
         </tbody>
