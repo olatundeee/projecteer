@@ -65,7 +65,6 @@ export class ViewProjectsComponent implements OnInit {
   }
 
   editProject(project) {
-    console.log(project);
 
     // use local storage to store project data in order to edit details;
 

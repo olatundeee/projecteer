@@ -46,4 +46,18 @@ export class AdminViewProjectsComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/projects/project-details');
   }
 
+  // view all tasks listed under this project
+
+  viewTasks(project) {
+    localStorage.removeItem('project-name');
+    localStorage.setItem('project-name', project.project_name);
+
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', project._id);
+
+    // use router to navigate to tasks list view
+
+    this.router.navigateByUrl('/dashboard/tasks');
+  }
+
 }
