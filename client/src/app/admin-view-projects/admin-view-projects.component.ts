@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../services/projects.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view-projects',
@@ -10,7 +11,7 @@ export class AdminViewProjectsComponent implements OnInit {
 
   projects;
 
-  constructor(private projectService: ProjectsService) { }
+  constructor(private projectService: ProjectsService, private router: Router) { }
 
   ngOnInit() {
     // send a signal to the projects service to retrieve all currently active projects for a particular user through api
@@ -20,6 +21,29 @@ export class AdminViewProjectsComponent implements OnInit {
     this.projectService.getAllUserProjects(userId).subscribe(res => {
       this.projects = res;
     });
+  }
+
+  // navigate to the project details page to see all details about the project
+
+  viewProject(project) {
+
+    // use local storage to store project data in order to view details;
+
+    localStorage.removeItem('project-name');
+    localStorage.setItem('project-name', project.project_name);
+
+    localStorage.removeItem('project-description');
+    localStorage.setItem('project-description', project.project_description);
+
+    localStorage.removeItem('project-solutions');
+    localStorage.setItem('project-solutions', project.project_solutions);
+
+    localStorage.removeItem('project-problems');
+    localStorage.setItem('project-problems', project.project_problems);
+
+    // use router to navigate to project details view
+
+    this.router.navigateByUrl('/dashboard/projects/project-details');
   }
 
 }

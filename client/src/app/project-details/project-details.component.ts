@@ -17,8 +17,6 @@ export class ProjectDetailsComponent implements OnInit {
   ngOnInit() {
     // get and initialize project details stored in localStorage
 
-    console.log(localStorage.getItem('project-solutions'));
-
     this.project_name = localStorage.getItem('project-name');
 
     this.project_description = localStorage.getItem('project-description');
