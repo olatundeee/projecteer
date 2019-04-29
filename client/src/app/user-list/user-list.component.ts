@@ -21,13 +21,11 @@ export class UserListComponent implements OnInit {
       this.users = res;
     });
 
-    // /dashboard/projects/admin-view-projects
-
 
     // /dashboard/teams/admin-view-team
   }
 
-  // users with the role of administrator can view profile of other users by calling the following function
+  // users with the role of administrator can view profile of a particular user by calling the following function
 
   adminViewProfile(user) {
 
@@ -42,6 +40,19 @@ export class UserListComponent implements OnInit {
     // navigate to admin view profile component
 
     this.router.navigateByUrl('/dashboard/users/admin-view-profile');
+  }
+
+   // users with the role of administrator can view projects of a particular user by calling the following function
+
+  adminViewProjects(user) {
+    // store user data in local storage for future reference
+
+    localStorage.removeItem('userIdToView');
+    localStorage.setItem('userIdToView', user._id);
+
+    // navigate to admin view profile component
+
+    this.router.navigateByUrl('/dashboard/projects/admin-view-projects');
   }
 
 }
