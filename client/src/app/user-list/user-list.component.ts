@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +11,7 @@ export class UserListComponent implements OnInit {
 
   users;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
 
@@ -19,6 +20,28 @@ export class UserListComponent implements OnInit {
     this.userService.getAllUsers().subscribe(res => {
       this.users = res;
     });
+
+    // /dashboard/projects/admin-view-projects
+
+
+    // /dashboard/teams/admin-view-team
+  }
+
+  // users with the role of administrator can view profile of other users by calling the following function
+
+  adminViewProfile(user) {
+
+    // store user data in local storage for future reference
+
+    localStorage.removeItem('userIdToView');
+    localStorage.setItem('userIdToView', user._id);
+
+    localStorage.removeItem('userNameToView');
+    localStorage.setItem('userNameToView', user.username);
+
+    // navigate to admin view profile component
+
+    this.router.navigateByUrl('/dashboard/users/admin-view-profile');
   }
 
 }
