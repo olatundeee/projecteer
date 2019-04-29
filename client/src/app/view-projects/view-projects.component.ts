@@ -20,7 +20,6 @@ export class ViewProjectsComponent implements OnInit {
 
     this.projectService.getAllUserProjects(userId).subscribe(res => {
       this.projects = res;
-      console.log(this.projects);
     });
   }
 
