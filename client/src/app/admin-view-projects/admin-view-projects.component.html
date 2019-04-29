@@ -7,9 +7,6 @@
             <th> </th>
             <th> </th>
             <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
         </tr>
       </thead>
   
@@ -18,15 +15,6 @@
           <td>{{project.project_name}}</td>
           <td>
             <a class="waves-effect waves-light btn green" (click)="viewProject(project)">details</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn black" (click)=editProject(project)>edit</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn red" (click)="deleteProject(project)">delete</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn teal" (click)=addTask(project)>add task</a>
           </td>
           <td>
             <a class="waves-effect waves-light btn green darken-3" (click)="viewTasks(project)">view tasks</a>
