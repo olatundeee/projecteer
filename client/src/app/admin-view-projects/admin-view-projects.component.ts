@@ -60,4 +60,17 @@ export class AdminViewProjectsComponent implements OnInit {
     this.router.navigateByUrl('/dashboard/tasks');
   }
 
+  // navigate to the team details page to see all details about the project team
+
+  viewTeam(project) {
+    // store project id in local storage for future reference
+
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', project._id);
+
+    // use router to navigate to admin view team page
+
+    this.router.navigateByUrl('/dashboard/teams/admin-view-team');
+  }
+
 }
