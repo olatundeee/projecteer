@@ -26,7 +26,6 @@ export class ViewUserTeamsComponent implements OnInit {
 
     this.teamsService.getProjectTeam().subscribe(res => {
       this.teams = res;
-      console.log(this.teams);
 
       // store team id in local storage for easy identification
 
