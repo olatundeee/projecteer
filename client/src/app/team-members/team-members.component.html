@@ -1,3 +1,22 @@
-<p>
-  team-members works!
-</p>
+<div class="row">
+  <div class="col l12 m12 s12">
+    <table class="striped projects-table centered">
+      <thead class="red white-text">
+        <tr>
+            <th>Member Name</th>
+            <th> </th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let member of teamMembers">
+          <td>{{member.currentUser}}</td>
+          <td>
+            <a class="waves-effect waves-light btn green" (click)="viewProfile(member)">details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

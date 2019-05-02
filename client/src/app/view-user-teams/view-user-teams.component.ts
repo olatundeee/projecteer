@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../services/teams.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-user-teams',
@@ -15,7 +16,7 @@ export class ViewUserTeamsComponent implements OnInit {
   isNotTeamLead;
   member;
 
-  constructor(private teamsService: TeamsService) { }
+  constructor(private teamsService: TeamsService, private router: Router) { }
 
   ngOnInit() {
     this.isNotTeamLead = true;
@@ -172,6 +173,14 @@ export class ViewUserTeamsComponent implements OnInit {
       this.isTeamLead = true;
       this.isNotTeamLead = false;
     });
+  }
+
+
+  // navigate to team members page
+
+  viewTeamMembers() {
+
+    this.router.navigateByUrl('/dashboard/teams/team-members');
   }
 
 }
