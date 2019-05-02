@@ -146,4 +146,13 @@ export class TeamsService {
       currentProjectId
     }).pipe(map(this.extractData), catchError(this.handleError));
   }
+
+  // retrieve list of team mebers from the backend
+
+  getTeamMembers(currentTeam, currentTeamId) {
+    return this.http.post('http://localhost:3001/get-team-members', {
+      currentTeam,
+      currentTeamId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
 }

@@ -82,6 +82,7 @@ app.post('/disband-team', teamsRouter);
 // routes for team members
 app.post('/join-team', teamMembersRouter);
 app.post('/confirm-team-member', teamMembersRouter);
+app.post('/get-team-members', teamMembersRouter);
 
 
 // catch 404 and forward to error handler
