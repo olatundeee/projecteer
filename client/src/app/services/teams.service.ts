@@ -72,8 +72,6 @@ export class TeamsService {
 
     const teamleadId = localStorage.getItem('currentUserId');
 
-    console.log(projectId, teamleadId);
-
     // send data to backend to return data on the team associated with the project
 
     return this.http.post('http://localhost:3001/get-user-team', {
@@ -154,5 +152,21 @@ export class TeamsService {
       currentTeam,
       currentTeamId
     }).pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  // delete team that has the supplied projectId in its document object
+
+  deleteTeamByProject(projectId) {
+    return this.http.post('http://localhost:3001/delete-team-by-project', {
+      team_projectId: projectId
+    });
+  }
+
+  // delete team members of project that has the supplied project id
+
+  deleteTeamMembersByProject(projectId) {
+    return this.http.post('http://localhost:3001/delete-team-members-by-project', {
+      currentProjectId: projectId
+    });
   }
 }

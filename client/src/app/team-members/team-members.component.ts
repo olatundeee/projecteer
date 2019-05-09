@@ -28,7 +28,7 @@ export class TeamMembersComponent implements OnInit {
 
   // view team member profile details
 
-  viewProfile(member) {
+  viewMemberDetails(member) {
     console.log(member);
   }
 
