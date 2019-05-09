@@ -58,4 +58,37 @@ router.post('/get-team-members', function(req, res) {
     })
 })
 
+// delete team members assigned to a particular project
+
+router.post('/delete-team-members-by-project', function(req, res) {
+    teamMembers.find(req.body, function(err, members) {
+
+        // if team mebers don't exist return a response
+
+        if (!members) {
+            return res.sendStatus(200);
+        }
+
+         // if there is an error return a status 500 response
+
+         if(err) {
+            return res.sendStatus(500);
+        }
+
+        // loop through team members array and delete each team member
+
+        members.forEach(teamMember => {
+            teamMembers.findByIdAndRemove(teamMember._id, function(err, member) {
+                // if there is an error return a status 500 response
+
+                if(err) {
+                    return res.sendStatus(500);
+                }
+
+                res.json(member);
+            })
+        })
+    })
+})
+
 module.exports = router;

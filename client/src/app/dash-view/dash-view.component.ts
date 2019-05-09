@@ -160,4 +160,22 @@ export class DashViewComponent implements OnInit {
 
     this.router.navigateByUrl('/dashboard/teams');
   }
+
+  // view list of team members
+
+  viewTeamMembers(userteam) {
+    // store team id in local storage for easy identification
+
+    localStorage.removeItem('currentTeamId');
+    localStorage.setItem('currentTeamId', userteam._id);
+
+    // store team name in local storage for easy identification
+
+    localStorage.removeItem('currentTeam');
+    localStorage.setItem('currentTeam', userteam.team_name);
+
+    // navigate to team members list page
+
+    this.router.navigateByUrl('/dashboard/teams/team-members');
+  }
 }

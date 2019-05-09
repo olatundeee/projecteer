@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectsService } from '../services/projects.service';
+import { TeamsService } from '../services/teams.service';
 
 @Component({
   selector: 'app-view-projects',
@@ -11,9 +12,10 @@ export class ViewProjectsComponent implements OnInit {
 
   projects;
 
-  constructor(private router: Router, private projectService: ProjectsService) { }
+  constructor(private router: Router, private projectService: ProjectsService, private teamService: TeamsService) { }
 
   ngOnInit() {
+
     // send a signal to the projects service to retrieve all currently active projects through api
 
     const userId = localStorage.getItem('currentUserId');
@@ -26,24 +28,33 @@ export class ViewProjectsComponent implements OnInit {
   // send project to project service in order to start the delete process
 
   deleteProject(project) {
+
     this.projectService.deleteProject(project).subscribe();
 
     // send data to project service to delete all tasks listed under a product
 
     this.projectService.deleteProjectTasks(project._id).subscribe();
 
-    // send api request to retrieve all current projects in database after project has been deleted
+    // send data to team service to delete the team assigned to this project
 
-    this.projectService.getAllProjects().subscribe(res => {
+    this.teamService.deleteTeamByProject(project._id).subscribe();
+
+    // send data to team service to delete the team members assigned to this project
+
+    this.teamService.deleteTeamMembersByProject(project._id).subscribe();
+
+    // send api request to retrieve all current projects in assigned to logged in user database after project has been deleted
+
+    const userId = localStorage.getItem('currentUserId');
+
+    this.projectService.getAllUserProjects(userId).subscribe(res => {
       this.projects = res;
-      console.log(this.projects);
     });
   }
 
   // navigate to the project details page to see all details about the project
 
   viewProject(project) {
-    console.log(project);
 
     // use local storage to store project data in order to view details;
 

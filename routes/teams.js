@@ -20,7 +20,6 @@ router.get('/get-all-teams', function(req, res, next) {
 // add new team
 
 router.post('/add-new-team', function(req, res, next) {
-    // console.log(req.body);
 
     // use the teams model to create a new document in the database and store team data
 
@@ -42,7 +41,6 @@ router.post('/add-new-team', function(req, res, next) {
 })
 
 router.post('/get-user-team', function(req, res){
-    console.log(req.body);
 
     // search through the teams database and return the team matching the search criteria
 
@@ -60,7 +58,6 @@ router.post('/get-user-team', function(req, res){
 })
 
 router.post('/get-all-user-team', function(req, res){
-    console.log(req.body);
 
     // search through the teams database and return the team matching the search criteria
 
@@ -80,7 +77,6 @@ router.post('/get-all-user-team', function(req, res){
 // delete a particular team
 
 router.post('/disband-team', function(req, res) {
-    console.log(req.body);
 
     // search through the teams database and delete and team with matching _id
 
@@ -92,6 +88,37 @@ router.post('/disband-team', function(req, res) {
         }
 
         res.json(team);
+    })
+})
+
+// delete team assigned to a particular project
+
+router.post('/delete-team-by-project', function(req, res) {
+    teams.findOne(req.body, function(err, team) {
+
+        // if team doesn't exist return a response
+
+        if (!team) {
+            return res.sendStatus(200);
+        }
+
+         // if there is an error return a status 500 response
+
+         if(err) {
+            return res.sendStatus(500);
+        }
+
+        // remove team with the supplied id from database
+
+        teams.findByIdAndRemove(team._id, function(err, team) {
+            // if there is an error return a status 500 response
+
+            if(err) {
+                return res.sendStatus(500);
+            }
+
+            res.json(team);
+        })
     })
 })
 

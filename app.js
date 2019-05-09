@@ -78,11 +78,13 @@ app.post('/add-new-team', teamsRouter);
 app.post('/get-user-team', teamsRouter);
 app.post('/get-all-user-team', teamsRouter);
 app.post('/disband-team', teamsRouter);
+app.post('/delete-team-by-project', teamsRouter)
 
 // routes for team members
 app.post('/join-team', teamMembersRouter);
 app.post('/confirm-team-member', teamMembersRouter);
 app.post('/get-team-members', teamMembersRouter);
+app.post('/delete-team-members-by-project', teamMembersRouter);
 
 
 // catch 404 and forward to error handler
