@@ -15,6 +15,8 @@ export class TaskDetailComponent implements OnInit {
   task_reason;
   task_result;
   displayApply;
+  applicantDetails;
+  currentUserApplied;
 
   constructor(private taskService: TasksService, private taskApplicationService: TaskApplicationService) { }
 
@@ -42,6 +44,30 @@ export class TaskDetailComponent implements OnInit {
     if (currentUserId !== taskCreatorId) {
       this.displayApply = true;
     }
+
+    // confirm if currently logged in user has already applied for task before
+
+    const task_id = localStorage.getItem('task-id'); // task id
+
+    this.taskApplicationService.confirmUserApplication(task_id, currentUserId).subscribe(res => {
+
+      this.applicantDetails = res;
+
+      /* if the currently logged in user id is
+      the same as task applicant id returned
+      from database then display the applied
+      button and remove the apply button from
+      view */
+
+      const applicantId = this.applicantDetails.taskApplicantId;
+
+      if (applicantId === currentUserId) {
+        this.displayApply = false;
+        this.currentUserApplied = true;
+      }
+
+
+    });
   }
 
   // send in credentials of currently logged in user and the applied for task with respect to application for task delegation
@@ -61,9 +87,5 @@ export class TaskDetailComponent implements OnInit {
 
     this.taskApplicationService.applyForTask(task_id, task_title, task_project_id, currentUserId, currentUser).subscribe();
   }
-
-  // confirm if currently logged in user has already applied for task before
-
-  confirmUserApplication() {}
 
 }

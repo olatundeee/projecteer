@@ -18,4 +18,19 @@ router.post('/apply-for-task', function(req, res) {
     })
 });
 
+// confirm if currently logged in user has already applied for task before
+
+router.post('/confirm-user-application', function(req, res) {
+
+    // search the task application database to locate document that contains simultaneously the currently logged in user id and task applied for id
+
+    taskApplication.findOne(req.body, function(err, applicant) {
+        if (err) {
+            return res.sendStatus(500)
+        }
+
+        res.json(applicant);
+    })
+});
+
 module.exports = router;

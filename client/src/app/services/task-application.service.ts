@@ -44,4 +44,13 @@ export class TaskApplicationService {
       taskApplicant
     });
   }
+
+  // confirm if currently logged in user has already applied for task before
+
+  confirmUserApplication(taskId, taskApplicantId) {
+    return this.http.post('http://localhost:3001/confirm-user-application', {
+      taskId,
+      taskApplicantId
+    });
+  }
 }
