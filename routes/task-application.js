@@ -1,0 +1,21 @@
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
+var taskApplication = require('../models/task-application.js');
+
+// register a new application from logged in user
+
+router.post('/apply-for-task', function(req, res) {
+    taskApplication.create(req.body, function(err, taskApplication) {
+
+        // if an error is encountered return a status 500 error
+
+        if(err) {
+            res.sendStatus(500);
+        }
+
+        res.json(taskApplication)
+    })
+});
+
+module.exports = router;

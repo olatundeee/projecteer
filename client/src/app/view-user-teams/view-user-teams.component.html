@@ -1,7 +1,6 @@
 <div class="row center add-btn-area">
   <div class="col l3 m3 s12 center">
     <a class="btn teal add-btn" routerLink="/dashboard/teams/add-new-team" *ngIf="noteamCreated">create team</a>
-    <a class="btn red add-btn" (click)="disbandTeam()" *ngIf="teamCreated">disband team</a>
   </div>
   <div class="col l3 m3 s12 center">
     <a class="btn green add-btn lighten-2 disabled" *ngIf="isTeamLead">joined</a>

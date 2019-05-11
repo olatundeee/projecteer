@@ -57,6 +57,16 @@ export class ViewAllTasksComponent implements OnInit {
 
     localStorage.removeItem('task-result');
     localStorage.setItem('task-result', task.task_result);
+
+    localStorage.removeItem('task-creator');
+    localStorage.setItem('task-creator', task.task_added_by);
+
+    localStorage.removeItem('task-creator-id');
+    localStorage.setItem('task-creator-id', task.task_added_by_id);
+
+    localStorage.removeItem('task-project-id');
+    localStorage.setItem('task-project-id', task.project_id);
+
     this.router.navigateByUrl('/dashboard/tasks/task-detail');
   }
 
@@ -79,6 +89,7 @@ export class ViewAllTasksComponent implements OnInit {
 
     localStorage.removeItem('task-result');
     localStorage.setItem('task-result', task.task_result);
+
 
     // use router to navigate to edit task view
 

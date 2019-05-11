@@ -14,6 +14,7 @@ var tasksRouter = require('./routes/tasks');
 var projectsRouter = require('./routes/projects');
 var teamsRouter = require('./routes/teams');
 var teamMembersRouter = require('./routes/team-members');
+var taskApplicationRouter = require('./routes/task-application');
 
 var app = express();
 
@@ -85,6 +86,10 @@ app.post('/join-team', teamMembersRouter);
 app.post('/confirm-team-member', teamMembersRouter);
 app.post('/get-team-members', teamMembersRouter);
 app.post('/delete-team-members-by-project', teamMembersRouter);
+
+// routes for task application
+
+app.post('/apply-for-task', taskApplicationRouter);
 
 
 // catch 404 and forward to error handler
