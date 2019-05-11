@@ -13,3 +13,7 @@
 .collection-item-head {
     margin: 2% !important;
 }
+
+.disband-display {
+    display: none;
+}

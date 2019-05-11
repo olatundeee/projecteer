@@ -39,14 +39,6 @@ import { ViewEveryTeamComponent } from './view-every-team/view-every-team.compon
 import { ViewAllUserProjectsComponent } from './view-all-user-projects/view-all-user-projects.component';
 import { ViewAllUserTasksComponent } from './view-all-user-tasks/view-all-user-tasks.component';
 import { ViewAllUserTeamsComponent } from './view-all-user-teams/view-all-user-teams.component';
-
-
-// services
-
-import { ProjectsService } from './services/projects.service';
-import { TasksService } from './services/tasks.service';
-import { UserService } from './services/user.service';
-import { TeamsService } from './services/teams.service';
 import { TeamMembersComponent } from './team-members/team-members.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
@@ -55,6 +47,15 @@ import { AdminViewProfileComponent } from './admin-view-profile/admin-view-profi
 import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-projects.component';
 import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
 import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
+
+
+// services
+
+import { ProjectsService } from './services/projects.service';
+import { TasksService } from './services/tasks.service';
+import { UserService } from './services/user.service';
+import { TeamsService } from './services/teams.service';
+import { TaskApplicationService } from './services/task-application.service';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
     ProjectsService,
     TasksService,
     UserService,
-    TeamsService
+    TeamsService,
+    TaskApplicationService
   ],
   bootstrap: [AppComponent]
 })

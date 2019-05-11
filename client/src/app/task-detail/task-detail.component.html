@@ -1,3 +1,8 @@
+<div class="add-btn-area">
+    <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
+    <a class="btn blue add-btn disabled" *ngIf="currentUserApplied">applied</a>
+</div>
+
 <div class="container project-details center">
     <div class="card">
         <div class="card-action red white-text">

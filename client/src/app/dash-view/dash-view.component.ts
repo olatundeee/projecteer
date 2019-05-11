@@ -30,7 +30,6 @@ export class DashViewComponent implements OnInit {
     // get all tasks stored in the database
 
     this.taskService.getAllTasks().subscribe(res => {
-      console.log(res);
 
       // record number of documents sent back as response for get all tasks http request
 
@@ -41,7 +40,6 @@ export class DashViewComponent implements OnInit {
     // get all projects stored in the database
 
     this.projectService.getAllProjects().subscribe(res => {
-      console.log(res);
 
       // record number of documents sent back as response for get all projects http request
 
@@ -52,7 +50,6 @@ export class DashViewComponent implements OnInit {
     // get all teams stored in the database
 
     this.teamService.getAllTeams().subscribe(res => {
-      console.log(res);
 
       // record number of documents sent back as response for get all teams http request
 
@@ -67,7 +64,6 @@ export class DashViewComponent implements OnInit {
     // get all projects by one particular user
 
     this.projectService.getAllUserProjects(userId).subscribe(res => {
-      console.log(res);
 
       this.userprojects = res;
     });
@@ -75,7 +71,6 @@ export class DashViewComponent implements OnInit {
     // get all teams by one particular user
 
     this.teamService.getTeamByTeamLead(userId).subscribe(res => {
-      console.log(res);
 
       this.userteams = res;
     });
@@ -83,7 +78,6 @@ export class DashViewComponent implements OnInit {
     // get all tasks by one particular user
 
     this.taskService.getTasksByAddedBy().subscribe(res => {
-      console.log(res);
 
       this.usertasks = res;
     });
@@ -143,13 +137,22 @@ export class DashViewComponent implements OnInit {
 
     localStorage.removeItem('task-result');
     localStorage.setItem('task-result', usertask.task_result);
+
+    localStorage.removeItem('task-creator');
+    localStorage.setItem('task-creator', usertask.task_added_by);
+
+    localStorage.removeItem('task-creator-id');
+    localStorage.setItem('task-creator-id', usertask.task_added_by_id);
+
+    localStorage.removeItem('task-project-id');
+    localStorage.setItem('task-project-id', usertask.project_id);
+
     this.router.navigateByUrl('/dashboard/tasks/task-detail');
   }
 
   // view details of the team
 
   viewUserTeam(userteam) {
-    console.log(userteam);
     // use local storage to store project data in order to assign data to team;
 
     localStorage.removeItem('project-id');

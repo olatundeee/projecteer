@@ -2,7 +2,8 @@
     <table class="centered striped">
       <thead>
         <tr class="red white-text">
-          <th>Project Name</th>
+          <th>Task Title</th>
+          <th>Created By</th>
           <th>Delegated To</th>
           <th></th>
         </tr>
@@ -10,6 +11,9 @@
       <tbody>
         <tr *ngFor="let task of tasks">
           <td>{{task.task_title}}</td>
+          <td>
+            {{task.task_added_by}}
+          </td>
           <td>
             delegated personnel username goes here
           </td>
