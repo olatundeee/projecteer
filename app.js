@@ -90,6 +90,7 @@ app.post('/delete-team-members-by-project', teamMembersRouter);
 // routes for task application
 
 app.post('/apply-for-task', taskApplicationRouter);
+app.post('/confirm-user-application', taskApplicationRouter);
 
 
 // catch 404 and forward to error handler
