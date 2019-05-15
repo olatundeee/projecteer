@@ -1,6 +1,12 @@
-<div class="add-btn-area">
-    <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
-    <a class="btn blue add-btn disabled" *ngIf="currentUserApplied">applied</a>
+<div class="add-btn-area row">
+    <div class="col l4 m4">
+        <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
+        <a class="btn blue add-btn disabled" *ngIf="currentUserApplied">applied</a>
+    </div>
+    
+    <div class="col l4 m4">
+        <a class="btn teal add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">view all applicants</a>
+    </div>
 </div>
 
 <div class="container project-details center">

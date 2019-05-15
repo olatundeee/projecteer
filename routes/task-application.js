@@ -25,6 +25,8 @@ router.post('/confirm-user-application', function(req, res) {
     // search the task application database to locate document that contains simultaneously the currently logged in user id and task applied for id
 
     taskApplication.findOne(req.body, function(err, applicant) {
+        // if an error is encounter the server will return a 500 status
+
         if (err) {
             return res.sendStatus(500)
         }
@@ -32,5 +34,21 @@ router.post('/confirm-user-application', function(req, res) {
         res.json(applicant);
     })
 });
+
+// get all task applicants for a particular task
+
+router.post('/get-task-applicants', function(req, res) {
+    // search through the task applicants database and return the list of applicants that match the ask id and title provided
+
+    taskApplication.find(req.body, function(err, applicants) {
+        // if an error is encounter the server will return a 500 status
+
+        if (err) {
+            return res.sendStatus(500)
+        }
+
+        res.json(applicants);
+    })
+})
 
 module.exports = router;

@@ -53,4 +53,11 @@ export class TaskApplicationService {
       taskApplicantId
     });
   }
+
+  getTaskApplicants(taskId, taskTitle) {
+    return this.http.post('http://localhost:3001/get-task-applicants', {
+      taskId,
+      taskTitle
+    });
+  }
 }
