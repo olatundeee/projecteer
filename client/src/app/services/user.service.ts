@@ -132,6 +132,17 @@ export class UserService {
     });
   }
 
+  // task creator/project owner can view the profile details of a task applicant
+
+  viewApplicantProfile(userId, username) {
+    // send http request to return profile details for one particular user
+
+    return this.http.post('http://localhost:3001/get-profile-details', {
+      userId,
+      username
+    });
+  }
+
   // get edited data from edit profile component to send to api for user profile editing
 
   editProfile(profile) {
