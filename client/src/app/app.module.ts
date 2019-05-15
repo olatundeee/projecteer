@@ -47,6 +47,8 @@ import { AdminViewProfileComponent } from './admin-view-profile/admin-view-profi
 import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-projects.component';
 import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
 import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
+import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
+import { ViewApplicantProfileComponent } from './view-applicant-profile/view-applicant-profile.component';
 
 
 // services
@@ -56,7 +58,6 @@ import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
-import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-ap
     AdminViewProjectsComponent,
     AdminViewTeamComponent,
     RightSidenavComponent,
-    ViewTaskApplicantsComponent
+    ViewTaskApplicantsComponent,
+    ViewApplicantProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 // add a new user
 
 router.post('/register', function(req, res) {
-  console.log(req.body);
 
   // hash password to hide real password with encryption
   var hashedPassword = bcrypt.hashSync(req.body.user.password, 8);
@@ -40,7 +39,6 @@ router.post('/register', function(req, res) {
 // log user in
 
 router.post('/login', function(req, res) {
-  console.log(req.body);
 
   // confirm user existence by comparing provided username with usernames in the database
 

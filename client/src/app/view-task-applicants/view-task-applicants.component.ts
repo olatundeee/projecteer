@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskApplicationService } from '../services/task-application.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-task-applicants',
@@ -10,7 +11,7 @@ export class ViewTaskApplicantsComponent implements OnInit {
 
   applicants;
 
-  constructor(private taskApplicationService: TaskApplicationService) { }
+  constructor(private taskApplicationService: TaskApplicationService, private router: Router) { }
 
   ngOnInit() {
     // get the value of current task id from local storage
@@ -26,6 +27,19 @@ export class ViewTaskApplicantsComponent implements OnInit {
     this.taskApplicationService.getTaskApplicants(taskId, taskTitle).subscribe(res => {
       this.applicants = res;
     });
+  }
+
+  // view the profile details of the chosen applicant
+
+  viewApplicantProfile(applicant) {
+
+    localStorage.removeItem('applicantId');
+    localStorage.setItem('applicantId', applicant.taskApplicantId);
+
+    localStorage.removeItem('applicant');
+    localStorage.setItem('applicant', applicant.taskApplicant);
+
+    this.router.navigateByUrl('/dashboard/users/view-applicant-profile');
   }
 
 }
