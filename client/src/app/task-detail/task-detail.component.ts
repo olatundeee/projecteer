@@ -17,6 +17,7 @@ export class TaskDetailComponent implements OnInit {
   displayApply;
   applicantDetails;
   currentUserApplied;
+  userIsTeamLead;
 
   constructor(private taskService: TasksService, private taskApplicationService: TaskApplicationService) { }
 
@@ -43,6 +44,12 @@ export class TaskDetailComponent implements OnInit {
 
     if (currentUserId !== taskCreatorId) {
       this.displayApply = true;
+    }
+
+    // if currently logged in user id is the same as the task creator id display the view all applicants button
+
+    if (currentUserId === taskCreatorId) {
+      this.userIsTeamLead = true;
     }
 
     // confirm if currently logged in user has already applied for task before
@@ -86,6 +93,20 @@ export class TaskDetailComponent implements OnInit {
     // send task and applicant credentials to task application service to register the application
 
     this.taskApplicationService.applyForTask(task_id, task_title, task_project_id, currentUserId, currentUser).subscribe();
+
+    this.currentUserApplied = true;
+    this.displayApply = false;
+  }
+
+  // navigate to view task applicants components to view the list of applicants for a particular task
+
+  viewAllApplicants() {
+
+    const task_id = localStorage.getItem('task-id');
+
+    const task_title = localStorage.getItem('task-name');
+
+    console.log(task_id, task_title);
   }
 
 }

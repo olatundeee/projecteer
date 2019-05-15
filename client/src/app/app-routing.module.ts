@@ -36,6 +36,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AdminViewProfileComponent } from './admin-view-profile/admin-view-profile.component';
 import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-projects.component';
 import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
+import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -153,6 +154,11 @@ const routes: Routes = [
             // Route for editing an existing task data
             path: 'edit-task',
             component: EditTaskComponent
+          },
+          {
+            // Route for viewing list of task applicants
+            path: 'view-task-applicants',
+            component: ViewTaskApplicantsComponent
           }
         ]
       },

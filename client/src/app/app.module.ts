@@ -56,6 +56,7 @@ import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
+import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { TaskApplicationService } from './services/task-application.service';
     AdminViewProfileComponent,
     AdminViewProjectsComponent,
     AdminViewTeamComponent,
-    RightSidenavComponent
+    RightSidenavComponent,
+    ViewTaskApplicantsComponent
   ],
   imports: [
     BrowserModule,
