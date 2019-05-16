@@ -58,4 +58,26 @@ export class TaskDelegationService {
       taskDelegatedTo: taskApplicant
     });
   }
+
+  // confirm if task is delegated to anyone and remove delegation if delegated
+
+  findAndRemoveTaskDelegation(taskId, taskTitle) {
+    // send task data to backend to confirm task delegation
+
+    return this.http.post('http://localhost:3001/find-and-remove-task-delegation', {
+      taskId: taskId,
+      taskTitle: taskTitle,
+    });
+  }
+
+  // find the details of task delegation for a particular task
+
+  findTaskDelegation(taskId, taskTitle) {
+    // send applicant and task data to backend to confirm task delegation
+
+    return this.http.post('http://localhost:3001/find-task-delegation', {
+      taskId: taskId,
+      taskTitle: taskTitle
+    });
+  }
 }

@@ -49,6 +49,8 @@ import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.compon
 import { RightSidenavComponent } from './right-sidenav/right-sidenav.component';
 import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 import { ViewApplicantProfileComponent } from './view-applicant-profile/view-applicant-profile.component';
+import { DelegateTaskComponent } from './delegate-task/delegate-task.component';
+import { DelegateTeamMemberComponent } from './delegate-team-member/delegate-team-member.component';
 
 
 // services
@@ -58,7 +60,6 @@ import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
-import { DelegateTaskComponent } from './delegate-task/delegate-task.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { DelegateTaskComponent } from './delegate-task/delegate-task.component';
     RightSidenavComponent,
     ViewTaskApplicantsComponent,
     ViewApplicantProfileComponent,
-    DelegateTaskComponent
+    DelegateTaskComponent,
+    DelegateTeamMemberComponent
   ],
   imports: [
     BrowserModule,

@@ -97,6 +97,8 @@ app.post('/get-task-applicants', taskApplicationRouter);
 // routes for task delegation
 app.post('/delegate-task', taskDelegationRouter);
 app.post('/confirm-task-delegation', taskDelegationRouter);
+app.post('/find-and-remove-task-delegation', taskDelegationRouter);
+app.post('/find-task-delegation', taskDelegationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

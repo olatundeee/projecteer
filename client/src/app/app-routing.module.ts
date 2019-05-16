@@ -38,6 +38,7 @@ import { AdminViewProjectsComponent } from './admin-view-projects/admin-view-pro
 import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.component';
 import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 import { ViewApplicantProfileComponent } from './view-applicant-profile/view-applicant-profile.component';
+import { DelegateTeamMemberComponent } from './delegate-team-member/delegate-team-member.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -160,6 +161,12 @@ const routes: Routes = [
             // Route for viewing list of task applicants
             path: 'view-task-applicants',
             component: ViewTaskApplicantsComponent
+          },
+          {
+            // Route for delegating tasks to team members
+
+            path: 'delegate-to-team-members',
+            component: DelegateTeamMemberComponent
           }
         ]
       },

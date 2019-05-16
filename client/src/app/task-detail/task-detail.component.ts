@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../services/tasks.service';
 import { TaskApplicationService } from '../services/task-application.service';
+import { TaskDelegationService } from '../services/task-delegation.service';
+import { TeamsService } from '../services/teams.service';
+import { Router } from '@angular/router';
 import { Task } from '../task';
 
 @Component({
@@ -18,8 +21,16 @@ export class TaskDetailComponent implements OnInit {
   applicantDetails;
   currentUserApplied;
   userIsTeamLead;
+  team;
+  delegationStatus;
 
-  constructor(private taskService: TasksService, private taskApplicationService: TaskApplicationService) { }
+  constructor(
+    private taskService: TasksService,
+    private taskApplicationService: TaskApplicationService,
+    private teamService: TeamsService,
+    private router: Router,
+    private taskDelegationService: TaskDelegationService
+  ) { }
 
   ngOnInit() {
     // get task data stored in local storage
@@ -72,8 +83,12 @@ export class TaskDetailComponent implements OnInit {
         this.displayApply = false;
         this.currentUserApplied = true;
       }
+    });
 
+    // get the username of the user a particular task is delegated to
 
+    this.taskDelegationService.findTaskDelegation(task_id, this.task_title).subscribe(res => {
+      this.delegationStatus = res;
     });
   }
 
@@ -98,15 +113,27 @@ export class TaskDetailComponent implements OnInit {
     this.displayApply = false;
   }
 
-  // navigate to view task applicants components to view the list of applicants for a particular task
 
-  viewAllApplicants() {
+  // navigateto team team members view in order to delegate a task to the team member
 
-    const task_id = localStorage.getItem('task-id');
+  viewTeamMembers() {
+    // get the value of the current project id from local storage
 
-    const task_title = localStorage.getItem('task-name');
+    const task_project_id = localStorage.getItem('task-project-id');
 
-    console.log(task_id, task_title);
+    this.teamService.getTeamByProjectId(task_project_id).subscribe(res => {
+      this.team =  res;
+
+      // store team id and team name in local storage
+
+      localStorage.removeItem('team-id');
+      localStorage.setItem('team-id', this.team._id);
+
+      localStorage.removeItem('team-name');
+      localStorage.setItem('team-name', this.team.team_name);
+
+      this.router.navigateByUrl('/dashboard/tasks/delegate-to-team-members');
+    });
   }
 
 }

@@ -68,9 +68,14 @@ export class TeamsService {
 
     const projectId = localStorage.getItem('project-id');
 
-    // store the id of the team lead for easy identification
+    // send data to backend to return data on the team associated with the project
 
-    const teamleadId = localStorage.getItem('currentUserId');
+    return this.http.post('http://localhost:3001/get-user-team', {
+      team_projectId: projectId
+    }).pipe(map(this.extractData), catchError(this.handleError));
+  }
+
+  getTeamByProjectId(projectId) {
 
     // send data to backend to return data on the team associated with the project
 
