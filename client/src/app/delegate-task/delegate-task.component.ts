@@ -71,6 +71,7 @@ export class DelegateTaskComponent implements OnInit {
   }
 
   delegateTask() {
+
     // store applicant data in object in order to send to the service for delegation
 
     const applicant = {
@@ -81,11 +82,13 @@ export class DelegateTaskComponent implements OnInit {
       taskApplicant: localStorage.getItem('applicant')
     };
 
+    // confirm if task does not have a previous delegation and remove if it has a previous delegation
+
+    this.taskDelegationService.findAndRemoveTaskDelegation(applicant.taskId, applicant.taskTitle).subscribe();
+
     // send applicant data to service
 
-    this.taskDelegationService.delegateTask(applicant).subscribe(res => {
-      console.log('Task delegated');
-    });
+    this.taskDelegationService.delegateTask(applicant).subscribe();
 
     // display delegated button
 

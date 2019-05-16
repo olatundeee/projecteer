@@ -1,11 +1,19 @@
 <div class="add-btn-area row">
-    <div class="col l4 m4">
+    <div class="col l2 m2">
         <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
         <a class="btn blue add-btn disabled" *ngIf="currentUserApplied">applied</a>
     </div>
     
-    <div class="col l4 m4">
-        <a class="btn teal add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">view all applicants</a>
+    <div class="col l3 m3">
+        <a class="btn teal add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">applicants</a>
+    </div>
+
+    <div class="col l3 m3">
+        <a class="btn blue add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/delegate-to-team-members">team members</a>
+    </div>
+
+    <div class="col l4  center">
+        <a class="chip red white-text add-btn center"> Task Delegated To: {{delegationStatus}}</a>
     </div>
 </div>
 
