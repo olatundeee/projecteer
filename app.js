@@ -15,6 +15,7 @@ var projectsRouter = require('./routes/projects');
 var teamsRouter = require('./routes/teams');
 var teamMembersRouter = require('./routes/team-members');
 var taskApplicationRouter = require('./routes/task-application');
+var taskDelegationRouter = require('./routes/task-delegation');
 
 var app = express();
 
@@ -93,6 +94,9 @@ app.post('/apply-for-task', taskApplicationRouter);
 app.post('/confirm-user-application', taskApplicationRouter);
 app.post('/get-task-applicants', taskApplicationRouter);
 
+// routes for task delegation
+app.post('/delegate-task', taskDelegationRouter);
+app.post('/confirm-task-delegation', taskDelegationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
