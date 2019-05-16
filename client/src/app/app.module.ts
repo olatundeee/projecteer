@@ -58,6 +58,7 @@ import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
+import { DelegateTaskComponent } from './delegate-task/delegate-task.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { TaskApplicationService } from './services/task-application.service';
     AdminViewTeamComponent,
     RightSidenavComponent,
     ViewTaskApplicantsComponent,
-    ViewApplicantProfileComponent
+    ViewApplicantProfileComponent,
+    DelegateTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -118,6 +120,9 @@ import { TaskApplicationService } from './services/task-application.service';
     TeamsService,
     TaskApplicationService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DelegateTaskComponent
+  ]
 })
 export class AppModule { }
