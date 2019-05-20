@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../services/tasks.service';
 import { TeamsService } from '../services/teams.service';
 import { ProjectsService } from '../services/projects.service';
+import { TaskApplicationService } from '../services/task-application.service';
+import { TaskDelegationService } from '../services/task-delegation.service';
 import { Task } from '../task';
 import { Router } from '@angular/router';
 
@@ -21,9 +23,17 @@ export class DashViewComponent implements OnInit {
   usertasks;
   userprojects;
   userteams;
+  userApplications;
+  userDelegations;
+  appliedTask;
 
   constructor(
-    private taskService: TasksService, private teamService: TeamsService, private projectService: ProjectsService, private router: Router
+    private taskService: TasksService,
+    private teamService: TeamsService,
+    private projectService: ProjectsService,
+    private router: Router,
+    private taskApplicationService: TaskApplicationService,
+    private taskDelegationService: TaskDelegationService
   ) { }
 
   ngOnInit() {
@@ -64,22 +74,31 @@ export class DashViewComponent implements OnInit {
     // get all projects by one particular user
 
     this.projectService.getAllUserProjects(userId).subscribe(res => {
-
       this.userprojects = res;
     });
 
     // get all teams by one particular user
 
     this.teamService.getTeamByTeamLead(userId).subscribe(res => {
-
       this.userteams = res;
     });
 
     // get all tasks by one particular user
 
     this.taskService.getTasksByAddedBy().subscribe(res => {
-
       this.usertasks = res;
+    });
+
+    // get all task applications submitted by a specific user
+
+    this.taskApplicationService.getUserApplications(userId).subscribe(res => {
+      this.userApplications = res;
+    });
+
+    // get all tasks delegated to a particular user
+
+    this.taskDelegationService.getUserDelegations(userId).subscribe(res => {
+      this.userDelegations = res;
     });
 
   }
@@ -180,5 +199,81 @@ export class DashViewComponent implements OnInit {
     // navigate to team members list page
 
     this.router.navigateByUrl('/dashboard/teams/team-members');
+  }
+
+  // view the task details of a task that has been applied to by currently logged in user
+
+  viewApplicationTask(userApplication) {
+    // get the details of the chosen task from the database
+
+    this.taskService.getOneTask(userApplication.taskId).subscribe(res => {
+
+      this.appliedTask = res;
+
+      // store applied task data in local storage
+
+      localStorage.removeItem('task-id');
+      localStorage.setItem('task-id', this.appliedTask._id);
+
+      localStorage.removeItem('task-name');
+      localStorage.setItem('task-name', this.appliedTask.task_title);
+
+      localStorage.removeItem('task-description');
+      localStorage.setItem('task-description', this.appliedTask.task_description);
+
+      localStorage.removeItem('task-reason');
+      localStorage.setItem('task-reason', this.appliedTask.task_reason);
+
+      localStorage.removeItem('task-result');
+      localStorage.setItem('task-result', this.appliedTask.task_result);
+
+      localStorage.removeItem('task-creator');
+      localStorage.setItem('task-creator', this.appliedTask.task_added_by);
+
+      localStorage.removeItem('task-creator-id');
+      localStorage.setItem('task-creator-id', this.appliedTask.task_added_by_id);
+
+      localStorage.removeItem('task-project-id');
+      localStorage.setItem('task-project-id', this.appliedTask.project_id);
+
+      this.router.navigateByUrl('/dashboard/tasks/task-detail');
+    });
+  }
+
+  viewDelegationTask(userDelegation) {
+    // get the details of the chosen task from the database
+
+    this.taskService.getOneTask(userDelegation.taskId).subscribe(res => {
+
+      this.appliedTask = res;
+
+      // store applied task data in local storage
+
+      localStorage.removeItem('task-id');
+      localStorage.setItem('task-id', this.appliedTask._id);
+
+      localStorage.removeItem('task-name');
+      localStorage.setItem('task-name', this.appliedTask.task_title);
+
+      localStorage.removeItem('task-description');
+      localStorage.setItem('task-description', this.appliedTask.task_description);
+
+      localStorage.removeItem('task-reason');
+      localStorage.setItem('task-reason', this.appliedTask.task_reason);
+
+      localStorage.removeItem('task-result');
+      localStorage.setItem('task-result', this.appliedTask.task_result);
+
+      localStorage.removeItem('task-creator');
+      localStorage.setItem('task-creator', this.appliedTask.task_added_by);
+
+      localStorage.removeItem('task-creator-id');
+      localStorage.setItem('task-creator-id', this.appliedTask.task_added_by_id);
+
+      localStorage.removeItem('task-project-id');
+      localStorage.setItem('task-project-id', this.appliedTask.project_id);
+
+      this.router.navigateByUrl('/dashboard/tasks/task-detail');
+    });
   }
 }

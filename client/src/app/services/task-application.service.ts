@@ -60,4 +60,12 @@ export class TaskApplicationService {
       taskTitle
     });
   }
+
+  // return a list of applications by a specific user
+
+  getUserApplications(applicantId) {
+    return this.http.post('http://localhost:3001/get-user-applications', {
+      applicantId
+    });
+  }
 }

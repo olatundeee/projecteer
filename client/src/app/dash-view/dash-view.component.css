@@ -20,7 +20,6 @@
 
 .view-chip {
     cursor: pointer;
-    border-radius: 25px;
 }
 
 .rounded {
@@ -29,4 +28,12 @@
 
 .tab-view {
     margin: 3%;
+}
+
+.explore-col {
+    padding-top: 5%;
+}
+
+.view-task-chip {
+    cursor: pointer;
 }

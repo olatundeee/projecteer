@@ -80,4 +80,16 @@ export class TaskDelegationService {
       taskTitle: taskTitle
     });
   }
+
+  // get all delegetaions registered to a particular user
+
+  getUserDelegations(userId) {
+    const taskDelegatedToId = userId;
+
+    // send user id to backend to return all delegation objects conatining user id
+
+    return this.http.post('http://localhost:3001/get-user-delegations', {
+      taskDelegatedToId
+    });
+  }
 }

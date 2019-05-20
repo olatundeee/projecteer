@@ -9,7 +9,7 @@
     </div>
 
     <div class="col l3 m3">
-        <a class="btn blue add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/delegate-to-team-members">team members</a>
+        <a class="btn blue add-btn" *ngIf="userIsTeamLead"(click)="viewTeamMembers()">team members</a>
     </div>
 
     <div class="col l4  center">

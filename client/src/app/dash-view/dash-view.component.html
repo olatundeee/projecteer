@@ -1,120 +1,82 @@
-<div class="row dash-view">
-    <div class="col l4 m4 s12">
-      <div class="card-action rounded red white-text">
-        <ul class="collection rounded">
-          <li class="collection-item avatar center-align red white-text">
-            <h5 class="title"><b>All Projects: {{allprojectsNumber}}</b></h5>
-          </li>
-        </ul>
-      </div>
-      <div class="view-btn center">
-        <a class="btn green center white-text view-chip" routerLink="/dashboard/view-every-project">VIEW ALL PROJECTS</a>
+
+  <div class="row">
+    <div class="col l9 m9">
+      <div class="dash-view-tabs center">
+        <mat-tab-group>
+          <mat-tab label="YOUR PROJECTS">
+            <div class="card tab-view" *ngFor="let userproject of userprojects">
+              <div class="card-content red-text">
+                <span class="card-title">{{userproject.project_name}}</span>
+                <p class="black-text">progress bar goes here</p>
+              </div>
+              <div class="card-action">
+                <a class="red-text view-chip" (click)="viewUserProject(userproject)">Details</a>
+                <a class="view-chip red-text" (click)="viewUserProjectTasks(userproject)">Tasks</a>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="YOUR TASKS">
+            <ul class="collection">
+              <li class="collection-item" *ngFor="let usertask of usertasks">
+                <div>
+                    {{usertask.task_title}}<a class="secondary-content red chip white-text view-task-chip" (click)="viewUserTask(usertask)">Task Details</a>
+                </div>
+              </li>
+            </ul>
+          </mat-tab>
+          <mat-tab label="YOUR TEAMS">
+            <div class="card tab-view" *ngFor="let userteam of userteams">
+              <div class="card-content red-text">
+                <span class="card-title">{{userteam.team_name}}</span>
+                <p>{{userteam.team_project}}</p>
+              </div>
+              <div class="card-action">
+                <a class=" red-text view-chip" (click)="viewUserTeam(userteam)">Details</a>
+                <a class="red-text view-chip" (click)="viewTeamMembers(userteam)">TEAM MEMBERS</a>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="YOUR APPLICATIONS">
+            <ul class="collection">
+              <li class="collection-item" *ngFor="let userApplication of userApplications">
+                <div>
+                  {{userApplication.taskTitle}}<a class="secondary-content red chip white-text view-task-chip" (click)="viewApplicationTask(userApplication)">View Task</a>
+                </div>
+              </li>
+            </ul>
+          </mat-tab>
+          <mat-tab label="YOUR DELEGATIONS">
+            <ul class="collection">
+              <li class="collection-item" *ngFor="let userDelegation of userDelegations">
+                <div>
+                  {{userDelegation.taskTitle}}<a class="secondary-content red chip white-text view-task-chip" (click)="viewDelegationTask(userDelegation)">View Task</a>
+                </div>
+              </li>
+            </ul>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
-    <div class="col l4 m4 s12">
-      <div class="card-action rounded red white-text">
-        <ul class="collection rounded">
-          <li class="collection-item avatar center-align red white-text">
-            <h5 class="title"><b>All Tasks: {{alltasksNumber}}</b></h5>
-          </li>
-        </ul>
-      </div>
-      <div class="view-btn center">
-        <a class="btn teal center white-text view-chip" routerLink="/dashboard/view-every-task">VIEW ALL TASKS</a>
-      </div>
-    </div>
-    <div class="col l4 m4 s12">
-      <div class="card-action rounded red white-text">
-        <ul class="collection rounded">
-          <li class="collection-item avatar center-align red white-text">
-            <h5 class="title"><b>All Teams: {{allteamsNumber}}</b></h5>
-          </li>
-        </ul>
-      </div>
-      <div class="view-btn center">
-        <a class="btn green darken-3 center white-text view-chip" routerLink="/dashboard/view-every-team">VIEW ALL TEAMS</a>
-      </div>
+    <div class="col l3 m3 explore-col">
+      <ul class="collection">
+        <li class="collection-header center center-align"><h5 class="red-text">Explore</h5></li>
+        <li class="collection-item">
+          <div>
+            <a class="center red-text" routerLink="/dashboard/view-every-project">All Projects</a>
+            <a href="#!" class="secondary-content red-text">{{allprojectsNumber}}</a></div>
+        </li>
+        <li class="collection-item">
+          <div>
+            <a class="center red-text" routerLink="/dashboard/view-every-task">All Tasks</a>
+            <a href="#!" class="secondary-content red-text">{{alltasksNumber}}</a>
+          </div>
+        </li>
+        <li class="collection-item">
+          <div>
+            <a class="center red-text" routerLink="/dashboard/view-every-team">All Teams</a>
+            <a href="#!" class="secondary-content red-text">{{allteamsNumber}}</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <div class="dash-view-tabs center">
-    <mat-tab-group>
-      <mat-tab label="YOUR PROJECTS">
-        <div class="card tab-view">
-          <table class="striped centered">
-            <thead class="red white-text">
-              <tr>
-                <th>Project Name</th>
-                <th>Progress</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr *ngFor="let userproject of userprojects">
-                <td>{{userproject.project_name}}</td>
-                <td>progress bar goes here</td>
-                <td>
-                  <a class="btn blue view-chip white-text" (click)="viewUserProject(userproject)">DETAILS</a>
-                </td>
-                <td>
-                  <a class="btn indigo view-chip white-text" (click)="viewUserProjectTasks(userproject)">VIEW TASKS</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </mat-tab>
-      <mat-tab label="YOUR TASKS">
-          <div class="card tab-view">
-              <table class="striped centered">
-                <thead class="red white-text">
-                  <tr>
-                    <th>Task Title</th>
-                    <th>Delegated To</th>
-                    <th></th>
-                  </tr>
-                </thead>
-    
-                <tbody>
-                  <tr *ngFor="let usertask of usertasks">
-                    <td>{{usertask.task_title}}</td>
-                    <td>Delegated personnel here</td>
-                    <td>
-                      <a class="btn teal view-chip white-text" (click)="viewUserTask(usertask)">DETAILS</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-      </mat-tab>
-      <mat-tab label="YOUR TEAMS">
-          <div class="card tab-view">
-              <table class="striped centered">
-                <thead class="red white-text">
-                  <tr>
-                    <th>Team Name</th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-    
-                <tbody>
-                  <tr *ngFor="let userteam of userteams">
-                    <td>{{userteam.team_name}}</td>
-                    <td>
-                      <a class="btn green view-chip white-text" (click)="viewUserTeam(userteam)">DETAILS</a>
-                    </td>
-                    <td>
-                      <a class="btn green darken-3 view-chip white-text" (click)="viewTeamMembers(userteam)">TEAM MEMBERS</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
-
-  

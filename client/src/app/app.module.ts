@@ -60,6 +60,10 @@ import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
 import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
+import { TaskDelegationService } from './services/task-delegation.service';
+import { ChatService } from './services/chat.service';
+import { UserChatComponent } from './user-chat/user-chat.component';
+import { GroupChatComponent } from './group-chat/group-chat.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +108,9 @@ import { TaskApplicationService } from './services/task-application.service';
     ViewTaskApplicantsComponent,
     ViewApplicantProfileComponent,
     DelegateTaskComponent,
-    DelegateTeamMemberComponent
+    DelegateTeamMemberComponent,
+    UserChatComponent,
+    GroupChatComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +126,9 @@ import { TaskApplicationService } from './services/task-application.service';
     TasksService,
     UserService,
     TeamsService,
-    TaskApplicationService
+    TaskApplicationService,
+    TaskDelegationService,
+    ChatService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

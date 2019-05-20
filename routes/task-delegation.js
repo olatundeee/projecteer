@@ -86,4 +86,19 @@ router.post('/find-task-delegation', function(req, res) {
     })
 })
 
+// find details about a particular task delegation
+
+router.post('/get-user-delegations', function(req, res) {
+    taskDelegation.find(req.body, function(err, taskDelegations) {
+
+        // if an error is encountered return a status 500 error
+
+        if(err) {
+            return res.sendStatus(500);
+        }
+
+        res.json(taskDelegations)
+    })
+})
+
 module.exports = router;
