@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeamsService } from '../services/teams.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-members',
@@ -10,7 +11,7 @@ export class TeamMembersComponent implements OnInit {
 
   teamMembers;
 
-  constructor(private teamService: TeamsService) { }
+  constructor(private teamService: TeamsService, private router: Router) { }
 
   ngOnInit() {
 
@@ -29,7 +30,18 @@ export class TeamMembersComponent implements OnInit {
   // view team member profile details
 
   viewMemberDetails(member) {
-    console.log(member);
+
+    // store member profile data in local storage for easy reference
+
+    localStorage.removeItem('applicant');
+    localStorage.setItem('applicant', member.currentUser);
+
+    localStorage.removeItem('applicantId');
+    localStorage.setItem('applicantId', member.currentUserId);
+
+    // navigate to view applicant profile component
+
+    this.router.navigateByUrl('/dashboard/users/view-applicant-profile');
   }
 
 }
