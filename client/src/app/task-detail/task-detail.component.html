@@ -1,64 +1,24 @@
-<div class="add-btn-area row">
-    <div class="col l2 m2">
-        <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
-        <a class="btn blue add-btn disabled" *ngIf="currentUserApplied">applied</a>
-    </div>
-    
-    <div class="col l3 m3">
-        <a class="btn teal add-btn" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">applicants</a>
-    </div>
-
-    <div class="col l3 m3">
-        <a class="btn blue add-btn" *ngIf="userIsTeamLead"(click)="viewTeamMembers()">team members</a>
-    </div>
-
-    <div class="col l4  center">
-        <a class="chip red white-text add-btn center"> Task Delegated To: {{delegationStatus}}</a>
-    </div>
-</div>
-
-<div class="container project-details center">
-    <div class="card">
-        <div class="card-action red white-text">
-            <p class="center center-align">{{task_title}}</p>
-        </div>
-        <div class="card-content project-details-content">
-            <h6>Task Description</h6>
-            <p>{{task_description}}</p>
-        </div>
-        <div class="card-content project-details-content">
-            <h6>Reason for Task</h6>
-            <p>{{task_reason}}</p>
-        </div>
-        <div class="card-content project-details-content">
-            <h6>Expected Result</h6>
-            <p>{{task_result}}</p>
-        </div>
-    </div>
-</div>
-
-
 <div class="row">
     <div class="col l9 m9">
-            <div class="project-details center">
-                    <div class="card">
-                        <div class="card-action red white-text">
-                            <p class="center center-align">{{task_title}}</p>
-                        </div>
-                        <div class="card-content project-details-content">
-                            <h6>Task Description</h6>
-                            <p>{{task_description}}</p>
-                        </div>
-                        <div class="card-content project-details-content">
-                            <h6>Reason for Task</h6>
-                            <p>{{task_reason}}</p>
-                        </div>
-                        <div class="card-content project-details-content">
-                            <h6>Expected Result</h6>
-                            <p>{{task_result}}</p>
-                        </div>
-                    </div>
+        <div class="project-details center">
+            <div class="card">
+                <div class="card-action red white-text">
+                    <p class="center center-align">{{task_title}}</p>
                 </div>
+                <div class="card-content project-details-content">
+                    <h6>Task Description</h6>
+                    <p>{{task_description}}</p>
+                </div>
+                <div class="card-content project-details-content">
+                    <h6>Reason for Task</h6>
+                    <p>{{task_reason}}</p>
+                </div>
+                <div class="card-content project-details-content">
+                    <h6>Expected Result</h6>
+                    <p>{{task_result}}</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col l3 m3 explore-col">
         <ul class="collection">
@@ -69,11 +29,11 @@
               <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
               <a class="btn add-btn disabled" *ngIf="currentUserApplied">applied</a>
             </li>
-            <li class="collection-item">
-              <a class="view-chip red-text" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">Applicants</a>
+            <li class="collection-item" *ngIf="userIsTeamLead" >
+              <a class="view-chip red-text" routerLink="/dashboard/tasks/view-task-applicants">Applicants</a>
             </li>
-            <li class="collection-item">
-              <a class="view-chip red-text" *ngIf="userIsTeamLead"(click)="viewTeamMembers()">Team Members</a>
+            <li class="collection-item" *ngIf="userIsTeamLead">
+              <a class="view-chip red-text" (click)="viewTeamMembers()">Team Members</a>
             </li>
             <li class="collection-item">
               <a class="chip red white-text add-btn center"> Task Delegated To: {{delegationStatus}}</a>

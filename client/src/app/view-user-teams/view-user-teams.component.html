@@ -1,46 +1,55 @@
-<div class="row center add-btn-area">
-  <div class="col l3 m3 s12 center">
-    <a class="btn teal add-btn" routerLink="/dashboard/teams/add-new-team" *ngIf="noteamCreated">create team</a>
-  </div>
-  <div class="col l3 m3 s12 center">
-    <a class="btn green add-btn lighten-2 disabled" *ngIf="isTeamLead">joined</a>
-    <a class="btn green lighten-2 add-btn" *ngIf="isNotTeamLead" (click)="joinTeam()">join team</a>
-  </div>
-  <div class="col l3 m3 s12 center">
-    <a  class="btn blue add-btn" (click)="viewTeamMembers()">team members</a>
-  </div>
-  <div class="col l3 m3 s12 center">
-    <a class="btn green add-btn" routerLink="/dashboard/projects">back to projects list</a>
-  </div>
-</div>
-
-<div class="team-info" *ngIf="teamCreated">
-  <div class="card team-info-card">
-    <div class="card-action red">
-      <h6 class="white-text center">Team Information</h6>
+<div class="row">
+    <div class="col l9 m9">
+        <div class="project-details center">
+            <div class="team-info" *ngIf="teamCreated">
+                <div class="card team-info-card">
+                  <div class="card-action red">
+                    <h6 class="white-text center">Team Information</h6>
+                  </div>
+                  <div class="card-content center center-align">
+                    <ul class="collection">
+                      <li class="collection-item center-align">
+                          <p class="collection-item-head"><b>Team Name:</b></p>
+                          <p>{{teams.team_name}}</p>
+                      </li>
+              
+                      <li class="collection-item center-align">
+                          <p class="collection-item-head"><b>Team Project:</b></p>
+                          <p>{{teams.team_project}}</p>
+                      </li>
+              
+                      <li class="collection-item center-align">
+                          <p class="collection-item-head"><b>Team Lead:</b></p>
+                          <p>{{teams.team_lead}}</p>
+                      </li>
+              
+                      <li class="collection-item center-align">
+                          <p class="collection-item-head"><b>Team Description:</b></p>
+                          <p>{{teams.team_description}}</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
     </div>
-    <div class="card-content center center-align">
-      <ul class="collection">
-        <li class="collection-item center-align">
-            <p class="collection-item-head"><b>Team Name:</b></p>
-            <p>{{teams.team_name}}</p>
-        </li>
-
-        <li class="collection-item center-align">
-            <p class="collection-item-head"><b>Team Project:</b></p>
-            <p>{{teams.team_project}}</p>
-        </li>
-
-        <li class="collection-item center-align">
-            <p class="collection-item-head"><b>Team Lead:</b></p>
-            <p>{{teams.team_lead}}</p>
-        </li>
-
-        <li class="collection-item center-align">
-            <p class="collection-item-head"><b>Team Description:</b></p>
-            <p>{{teams.team_description}}</p>
-        </li>
-      </ul>
+    <div class="col l3 m3 explore-col">
+        <ul class="collection">
+            <li class="collection-header center center-align">
+                <h5 class="red-text">Actions</h5>
+            </li>
+            <li class="collection-item" *ngIf="noteamCreated">
+                <a class="red-text view-chip" routerLink="/dashboard/teams/add-new-team">create team</a>
+            </li>
+            <li class="collection-item" *ngIf="isTeamLead">
+                <a class="btn green add-btn lighten-2 disabled">joined</a>
+            </li>
+            <li class="collection-item" *ngIf="isNotTeamLead">
+                <a class="btn green lighten-2 add-btn" (click)="joinTeam()">join team</a>
+            </li>
+            <li class="collection-item">
+              <a class="view-chip red-text" (click)="viewTeamMembers()">Team Members</a>
+            </li>
+        </ul>
     </div>
-  </div>
 </div>
