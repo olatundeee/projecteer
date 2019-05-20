@@ -51,4 +51,24 @@ router.post('/get-task-applicants', function(req, res) {
     })
 })
 
+// get all applications for a particular specific user
+
+router.post('/get-user-applications', function(req, res) {
+    // search through the task applicants database and return the list of applicants that match the ask id and title provided
+
+    const taskApplicantId = req.body.applicantId;
+
+    taskApplication.find({
+        taskApplicantId: taskApplicantId
+    }, function(err, applications) {
+        // if an error is encounter the server will return a 500 status
+
+        if (err) {
+            return res.sendStatus(500)
+        }
+
+        res.json(applications);
+    })
+})
+
 module.exports = router;

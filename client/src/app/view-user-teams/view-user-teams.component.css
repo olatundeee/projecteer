@@ -17,3 +17,15 @@
 .disband-display {
     display: none;
 }
+
+.project-details {
+    margin: 5%;
+}
+
+.explore-col {
+    padding-top: 5%;
+}
+
+.view-chip {
+    cursor: pointer;
+}

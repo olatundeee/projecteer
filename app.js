@@ -16,6 +16,7 @@ var teamsRouter = require('./routes/teams');
 var teamMembersRouter = require('./routes/team-members');
 var taskApplicationRouter = require('./routes/task-application');
 var taskDelegationRouter = require('./routes/task-delegation');
+var chatRouter = require('./routes/chat');
 
 var app = express();
 
@@ -93,12 +94,17 @@ app.post('/delete-team-members-by-project', teamMembersRouter);
 app.post('/apply-for-task', taskApplicationRouter);
 app.post('/confirm-user-application', taskApplicationRouter);
 app.post('/get-task-applicants', taskApplicationRouter);
+app.post('/get-user-applications', taskApplicationRouter);
 
 // routes for task delegation
 app.post('/delegate-task', taskDelegationRouter);
 app.post('/confirm-task-delegation', taskDelegationRouter);
 app.post('/find-and-remove-task-delegation', taskDelegationRouter);
 app.post('/find-task-delegation', taskDelegationRouter);
+app.post('/get-user-delegations', taskDelegationRouter);
+
+// routes for user chats
+app.use('/chat', chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

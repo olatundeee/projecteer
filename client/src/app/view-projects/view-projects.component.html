@@ -5,44 +5,25 @@
     </div>
   </div>
 
-  <div class="col l12 m12 s12">
-    <table class="striped projects-table centered">
-      <thead class="red white-text">
-        <tr>
-            <th>Project Name</th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-        </tr>
-      </thead>
   
-      <tbody>
-        <tr *ngFor="let project of projects">
-          <td>{{project.project_name}}</td>
-          <td>
-            <a class="waves-effect waves-light btn green" (click)="viewProject(project)">details</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn black" (click)=editProject(project)>edit</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn red" (click)="deleteProject(project)">delete</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn teal" (click)=addTask(project)>add task</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn green darken-3" (click)="viewTasks(project)">view tasks</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn blue darken-3" (click)="viewTeam(project)">team</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="card horizontal col l4 m4 s12 projects-table" *ngFor="let project of projects">
+    <div class="card-stacked">
+      <div class="card-content">
+        <span class="card-title red-text center center-align">{{project.project_name}}</span>
+      </div>
+      <div class="card-action">
+        <p class="center center-align">
+          <a class="red-text view-chip center center-align" (click)="viewProject(project)">details</a>
+          <a class="red-text view-chip center center-align" (click)=editProject(project)>edit</a>
+          <a class="red-text view-chip center center-align" (click)="deleteProject(project)">delete</a>
+        </p>
+        <p class="center center-align">
+          <a class="red-text view-chip" (click)=addTask(project)>add task</a>
+          <a class="red-text view-chip" (click)="viewTasks(project)">view tasks</a>
+          <a class="red-text view-chip" (click)="viewTeam(project)">team</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 

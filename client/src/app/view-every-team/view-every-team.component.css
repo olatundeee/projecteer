@@ -9,3 +9,11 @@
 .view-btn {
     border-radius: 25px;
 }
+
+.view-chip {
+    cursor: pointer;
+}
+
+.projects-table {
+    margin: 5% !important;
+}

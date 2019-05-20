@@ -1,22 +1,17 @@
-<div class="row">
+<div class="row team-members-area">
   <div class="col l12 m12 s12">
-    <table class="striped projects-table centered">
-      <thead class="red white-text">
-        <tr>
-            <th>Member Name</th>
-            <th> </th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr *ngFor="let member of teamMembers">
-          <td>{{member.currentUser}}</td>
-          <td>
-            <a class="waves-effect waves-light btn green" (click)="viewProfile(member)">member details</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h6 class="center center-align red-text">Team Members</h6>
+  </div>
+  <div class="col l12 m12 s12">
+    <ul class="collection projects-table">
+      <li class="collection-item" *ngFor="let member of teamMembers">
+        <div>
+          {{member.currentUser}}<a class="secondary-content red chip white-text view-task-chip" (click)="viewMemberDetails(member)">Profile</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
+
+
 

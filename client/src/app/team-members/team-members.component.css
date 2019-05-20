@@ -10,3 +10,11 @@
 .add-btn {
     border-radius: 25px;
 }
+
+.view-task-chip {
+    cursor: pointer;
+}
+
+.team-members-area {
+    margin: 5%;
+}
