@@ -1,5 +1,5 @@
 .project-details {
-    margin: 5% auto;
+    margin: 5%;
 }
 
 .add-btn-area {
@@ -16,4 +16,12 @@
 
 .project-details-paragraph {
     margin: 3% !important;
+}
+
+.explore-col {
+    padding-top: 5%;
+}
+
+.view-chip {
+    cursor: pointer;
 }

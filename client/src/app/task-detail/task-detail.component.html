@@ -36,3 +36,48 @@
         </div>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col l9 m9">
+            <div class="project-details center">
+                    <div class="card">
+                        <div class="card-action red white-text">
+                            <p class="center center-align">{{task_title}}</p>
+                        </div>
+                        <div class="card-content project-details-content">
+                            <h6>Task Description</h6>
+                            <p>{{task_description}}</p>
+                        </div>
+                        <div class="card-content project-details-content">
+                            <h6>Reason for Task</h6>
+                            <p>{{task_reason}}</p>
+                        </div>
+                        <div class="card-content project-details-content">
+                            <h6>Expected Result</h6>
+                            <p>{{task_result}}</p>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="col l3 m3 explore-col">
+        <ul class="collection">
+            <li class="collection-header center center-align">
+                <h5 class="red-text">Actions</h5>
+            </li>
+            <li class="collection-item">
+              <a class="btn blue add-btn" (click)="applyForTask()" *ngIf="displayApply">apply</a>
+              <a class="btn add-btn disabled" *ngIf="currentUserApplied">applied</a>
+            </li>
+            <li class="collection-item">
+              <a class="view-chip red-text" *ngIf="userIsTeamLead" routerLink="/dashboard/tasks/view-task-applicants">Applicants</a>
+            </li>
+            <li class="collection-item">
+              <a class="view-chip red-text" *ngIf="userIsTeamLead"(click)="viewTeamMembers()">Team Members</a>
+            </li>
+            <li class="collection-item">
+              <a class="chip red white-text add-btn center"> Task Delegated To: {{delegationStatus}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
