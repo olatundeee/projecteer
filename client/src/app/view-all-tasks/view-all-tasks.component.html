@@ -1,30 +1,14 @@
-<div class="add-btn-area chip red left white-text">
-    {{project_name}}
+<div class="add-btn-area chip red center white-text">
+  {{project_name}}
+</div>
+  
+<div class="card projects-table" *ngFor="let task of tasks">
+  <div class="card-content red-text">
+    <span class="card-title center center-align">{{task.task_title}}</span>
   </div>
-  
-  <table class="striped projects-table centered container">
-      <thead class="red white-text">
-        <tr>
-            <th>Task Title</th>
-            <th> </th>
-            <th> </th>
-            <th> </th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr *ngFor="let task of tasks">
-            <td>{{task.task_title}}</td>
-            <td>
-              <a class="waves-effect waves-light btn green" (click)="viewTask(task)">details</a>
-            </td>
-            <td>
-              <a class="waves-effect waves-light btn black" (click)="editTask(task)" *ngIf="isCurrentUser">edit</a>
-            </td>
-            <td>
-              <a class="waves-effect waves-light btn red" (click)="deleteTask(task)" *ngIf="isCurrentUser">delete</a>
-            </td>
-            <td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="card-action center center-align">
+    <a class="red-text view-chip" (click)="viewTask(task)">details</a>
+    <a class="red-text view-chip" (click)="editTask(task)" *ngIf="isCurrentUser">edit</a>
+    <a class="red-text view-chip" (click)="deleteTask(task)" *ngIf="isCurrentUser">delete</a>
+  </div>
+</div>
