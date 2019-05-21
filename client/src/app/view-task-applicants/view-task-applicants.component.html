@@ -1,26 +1,14 @@
-<div class="row">
+<div class="view-area row">
   <div class="col l12 m12 s12">
-    <table class="striped projects-table centered">
-      <thead class="red white-text">
-        <tr>
-            <th>Username</th>
-            <th></th>
-            <th></th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <tr *ngFor="let applicant of applicants">
-          <td>{{applicant.taskApplicant}}</td>
-          <td>
-            <a class="waves-effect waves-light btn green" (click)="viewApplicantProfile(applicant)">profile</a>
-          </td>
-          <td>
-            <a class="waves-effect waves-light btn blue" (click)="delegateTask(applicant)">delegate task</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h6 class="center center-align red-text">Applicants</h6>
+  </div>
+  <div class="card projects-table col l4 m4 s12" *ngFor="let applicant of applicants">
+    <div class="card-content red-text">
+      <span class="card-title center center-align">{{applicant.taskApplicant}}</span>
+    </div>
+    <div class="card-action center center-align">
+      <a class="red-text view-chip" (click)="viewApplicantProfile(applicant)">profile</a>
+      <a class="red-text view-chip" (click)="delegateTask(applicant)">delegate task</a>
+    </div>
   </div>
 </div>
-
