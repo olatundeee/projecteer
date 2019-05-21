@@ -10,3 +10,11 @@
 .add-btn {
     border-radius: 25px;
 }
+
+.view-area {
+    margin: 5%;
+}
+
+.view-chip {
+    cursor: pointer;
+}
