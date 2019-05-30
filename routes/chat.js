@@ -2,38 +2,48 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-var Chat = require('../models/chat.js');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+var GroupChat = require('../models/group-chat.js');
+var UserChat = require('../models/user-chat.js');
 
-server.listen(4000);
+// create socket server and connect to main server
 
-// socket io
-io.on('connection', function (socket) {
-  console.log('User connected');
-  socket.on('disconnect', function() {
-    console.log('User disconnected');
-  });
-  socket.on('save-message', function (data) {
-    console.log(data);
-    io.emit('new-message', { message: data });
-  });
-});
+io.on("connection", socket => {
+    console.log('socket connected')
 
-/* GET ALL CHATS */
-router.get('/:room', function(req, res, next) {
-  Chat.find({ room: req.params.room }, function (err, chats) {
-    if (err) return next(err);
-    res.json(chats);
-  });
-});
+    socket.on('sendGroupMessage', function(chatData) {
+      // store chat data in database
 
-/* SAVE CHAT */
-router.post('/', function(req, res, next) {
-  Chat.create(req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
+      GroupChat.create(chatData, function(err, chat) {
+        GroupChat.findOne({
+          _id: chat._id
+        }, function(err, onechat) {
+          // emit to sender socket
+          io.emit('displayFoundMessage', onechat);
+        })
+      })
+    })
+
+    // display messages for a particular project chat
+
+    socket.on('displayGroupMessages', function(projectId) {
+      GroupChat.find({
+        projectId: projectId
+      }, function(err, chats) {
+        socket.emit('displayFoundMessages', chats);
+      })
+    })
+
+    // broadcast message to other members of the group chat
+
+    socket.on('broadcastMessage', function(data) {
+      console.log(data);
+    })
   });
-});
+
+  http.listen(4444);
+
+
 
 module.exports = router;

@@ -39,6 +39,9 @@ import { AdminViewTeamComponent } from './admin-view-team/admin-view-team.compon
 import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-applicants.component';
 import { ViewApplicantProfileComponent } from './view-applicant-profile/view-applicant-profile.component';
 import { DelegateTeamMemberComponent } from './delegate-team-member/delegate-team-member.component';
+import { UserChatComponent } from './user-chat/user-chat.component';
+import { GroupChatComponent } from './group-chat/group-chat.component';
+import { ChatComponent } from './chat/chat.component';
 
 // import route guard
 import { AuthGuard } from './guards/auth.guard';
@@ -100,6 +103,20 @@ const routes: Routes = [
         // Route to view all added teams by one particular user
         path: 'view-all-user-teams',
         component: ViewAllTeamsComponent
+      },
+      {
+        path: 'chat',
+        component: ChatComponent,
+        children: [
+          {
+            path: 'user-chat',
+            component: UserChatComponent
+          },
+          {
+            path: 'project-chat',
+            component: GroupChatComponent
+          }
+        ]
       },
       {
         // Route for all relating to projects

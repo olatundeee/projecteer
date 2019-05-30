@@ -30,6 +30,7 @@ mongoose.connect('mongodb://localhost:27017/projecteer', { promiseLibrary: requi
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -104,7 +105,7 @@ app.post('/find-task-delegation', taskDelegationRouter);
 app.post('/get-user-delegations', taskDelegationRouter);
 
 // routes for user chats
-app.use('/chat', chatRouter);
+app.post('/update-chat', chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
