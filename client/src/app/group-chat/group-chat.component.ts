@@ -17,7 +17,7 @@ export class GroupChatComponent implements OnInit, AfterViewInit {
 
   // manipulate chat messages area
 
-  @ViewChild('chatlist') chatlist: ElementRef;
+  @ViewChild('chatlist') private chatlist: ElementRef;
 
   constructor(private chatService: ChatService, private socket: Socket) { }
 

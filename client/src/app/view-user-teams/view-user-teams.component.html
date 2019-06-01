@@ -50,6 +50,9 @@
             <li class="collection-item">
               <a class="view-chip red-text" (click)="viewTeamMembers()">Team Members</a>
             </li>
+            <li class="collection-item" *ngIf="userIsNotTeamLead">
+                <a class="view-chip red-text" (click)="contactTeamLead()">Contact Team Lead</a>
+            </li>
         </ul>
     </div>
 </div>

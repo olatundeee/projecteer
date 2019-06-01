@@ -4,6 +4,7 @@ import { Observable, Observer, of, throwError  } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Socket } from 'ngx-socket-io';
 import { GroupChat } from '../group-chat';
+import { UserChat } from '../user-chat';
 
 @Injectable({
   providedIn: 'root'
@@ -37,9 +38,6 @@ export class ChatService {
 
   sendGroupMessage(chatData) {
     this.socket.emit('sendGroupMessage', chatData);
-
-    // broadcast message to other users
-    // this.socket.emit('broadcastMessage', chatData);
   }
 
   // display group chat messages
@@ -63,6 +61,37 @@ export class ChatService {
       this.socket.on('displayFoundMessage', (data: GroupChat) => {
         observer.next(data);
       });
+    });
+  }
+
+  // send private message object to socket server
+
+  sendPrivateMessage(message) {
+    this.socket.emit('sendPrivateMessage', message);
+  }
+
+  public onPrivateMessage(): Observable<UserChat> {
+    // listen for an event in order to display one message
+
+    return new Observable<UserChat>(observer => {
+      this.socket.on('displayNewPrivateMessage', (data: UserChat) => {
+        observer.next(data);
+      });
+    });
+  }
+
+  // display private messages between two users
+
+  displayPrivateMessages(senderId, recipientId) {
+    const chatParam = {senderId, recipientId};
+    this.socket.emit('displayPrivateMessages', chatParam);
+  }
+
+  public onDisplayPrivateMessages(): Observable<UserChat[]> {
+    // listen for an event in order to display messages
+
+    return new Observable<UserChat[]>(observer => {
+      this.socket.on('onDisplayPrivateMessages', (data: UserChat[]) => observer.next(data));
     });
   }
 }

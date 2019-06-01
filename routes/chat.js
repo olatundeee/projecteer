@@ -13,9 +13,11 @@ io.on("connection", socket => {
     console.log('socket connected')
 
     socket.on('sendGroupMessage', function(chatData) {
-      // store chat data in database
+      // store group chat data in database
 
       GroupChat.create(chatData, function(err, chat) {
+        // get newly created message from database and emit to client
+
         GroupChat.findOne({
           _id: chat._id
         }, function(err, onechat) {
@@ -35,10 +37,37 @@ io.on("connection", socket => {
       })
     })
 
-    // broadcast message to other members of the group chat
+    // store private chats in database
 
-    socket.on('broadcastMessage', function(data) {
-      console.log(data);
+    socket.on('sendPrivateMessage', function(message) {
+      UserChat.create(message, function(err, onemessage) {
+        // get newly created message from database and emit to client
+
+        io.emit('displayNewPrivateMessage', onemessage);
+      })
+    });
+
+    // get all private messages for two particular users
+
+    socket.on('displayPrivateMessages', function(chatParam) {
+      // get all private chat from the database
+
+      UserChat.find({}, function(err, chats) {
+        chats.forEach(chat => {
+          const allchats = [];
+
+          // get private chats for appropriate users
+
+          if ((chat.senderId === chatParam.senderId || chat.senderId === chatParam.recipientId) && (chat.recipientId === chatParam.senderId || chat.recipientId === chatParam.recipientId )) {
+            allchats.push(chat)
+          }
+          
+
+          // emit private messages to client
+          console.log(allchats);
+          socket.emit('onDisplayPrivateMessages', allchats);
+        })
+      })
     })
   });
 
