@@ -24,6 +24,8 @@ export class ProfileComponent implements OnInit {
     this.userService.getProfileDetails().subscribe(res => {
       this.profile = res;
 
+      // console.log(res);
+
       // check if user has already added a profile, if true, do not display the add bio button
 
       if (this.profile.profile_added === true) {

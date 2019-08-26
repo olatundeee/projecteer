@@ -17,6 +17,7 @@ var teamMembersRouter = require('./routes/team-members');
 var taskApplicationRouter = require('./routes/task-application');
 var taskDelegationRouter = require('./routes/task-delegation');
 var chatRouter = require('./routes/chat');
+var chatSupportRouter = require('./routes/chat-router');
 
 var app = express();
 
@@ -106,6 +107,7 @@ app.post('/get-user-delegations', taskDelegationRouter);
 
 // routes for user chats
 app.post('/update-chat', chatRouter);
+app.post('/get-user-conversations', chatSupportRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

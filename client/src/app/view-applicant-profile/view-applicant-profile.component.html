@@ -3,8 +3,14 @@
     <div class="card-action red">
       <h6 class="white-text center">Profile Information</h6>
     </div>
+    
     <div class="card-content center center-align">
       <ul class="collection">
+
+        <li class="collection-item center-align">
+            <p class="collection-item-head"><a class="view-chip red chip white-text" (click)="contactUser()">Contact {{profile.username}}</a></p>
+        </li>
+
         <li class="collection-item center-align">
             <p class="collection-item-head"><b>Username:</b></p>
             <p>{{profile.username}}</p>

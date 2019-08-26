@@ -1,5 +1,5 @@
 .form-card {
-    margin: 10%;
+    margin: 5%;
 }
 
 .new-project-input  {
@@ -20,12 +20,6 @@
 }
 
 .new-textarea {
-    height: 50%;
-    padding: 0 10px !important;
-}
-
-.new-textarea-two {
-    height: 25% !important;
     padding: 0 10px !important;
 }
 

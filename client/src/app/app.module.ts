@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 // components
@@ -132,7 +133,8 @@ const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    AngularEditorModule
   ],
   providers: [
     ProjectsService,

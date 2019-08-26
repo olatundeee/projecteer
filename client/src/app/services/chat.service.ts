@@ -11,6 +11,10 @@ import { UserChat } from '../user-chat';
 })
 export class ChatService {
 
+  selectedUser = {
+    username: ''
+  };
+
   constructor(private http: HttpClient, private socket: Socket) {
    }
 
@@ -82,8 +86,8 @@ export class ChatService {
 
   // display private messages between two users
 
-  displayPrivateMessages(senderId, recipientId) {
-    const chatParam = {senderId, recipientId};
+  displayPrivateMessages(participant_one, participant_two) {
+    const chatParam = {participant_one, participant_two};
     this.socket.emit('displayPrivateMessages', chatParam);
   }
 
@@ -94,4 +98,12 @@ export class ChatService {
       this.socket.on('onDisplayPrivateMessages', (data: UserChat[]) => observer.next(data));
     });
   }
+
+  // get all active conversations for a particular user
+
+  /*getUserConversations(userId) {
+    return this.http.post('http://localhost:3001/get-user-conversations', {
+      userId
+    });
+  }*/
 }

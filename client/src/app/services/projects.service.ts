@@ -48,6 +48,7 @@ export class ProjectsService {
   addProject(project) {
     // send data through post request
 
+    // console.log(project);
     return this.http.post('http://localhost:3001/add-new-project', {
       project_name: project.projectname,
       project_description: project.projectdescription,

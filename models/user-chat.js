@@ -1,15 +1,11 @@
 var mongoose = require('mongoose');
 
 var UserChatSchema = new mongoose.Schema({
-  recipient: String,
-  recipientId: String,
-  message: String,
+  conversationId: String,
   sender: String,
-  senderId: String,
-  unique_chat_id_1: {
-    senderId: String,
-    recipientId: String
-  }
+  recipient: String,
+  message: String,
+  created_At: Date
 });
 
 module.exports = mongoose.model('UserChat', UserChatSchema);

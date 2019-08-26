@@ -40,11 +40,22 @@ io.on("connection", socket => {
     // store private chats in database
 
     socket.on('sendPrivateMessage', function(message) {
-      UserChat.create(message, function(err, onemessage) {
-        // get newly created message from database and emit to client
+        const date = Date.now();
+        const participant_one = message.participant_one;
+        const participant_one_username = message.participant_one_username;
+        const participant_two = message.participant_two;
+        const participant_two_username = message.participant_two_username;
 
-        io.emit('displayNewPrivateMessage', onemessage);
-      })
+        UserChat.create({
+          conversationId: participant_one + participant_two,
+          sender: participant_one_username,
+          recipient: participant_two_username,
+          message: message.message,
+          created_At: date
+        }, function(err, newmessage) {
+          io.emit('displayNewPrivateMessage', newmessage)
+        })
+
     });
 
     // get all private messages for two particular users
@@ -52,22 +63,16 @@ io.on("connection", socket => {
     socket.on('displayPrivateMessages', function(chatParam) {
       // get all private chat from the database
 
-      UserChat.find({}, function(err, chats) {
-        chats.forEach(chat => {
-          const allchats = [];
+     UserChat.find({}, function(err, chats) {
+      const allmessages = [];
+      chats.forEach(chat => {
 
-          // get private chats for appropriate users
-
-          if ((chat.senderId === chatParam.senderId || chat.senderId === chatParam.recipientId) && (chat.recipientId === chatParam.senderId || chat.recipientId === chatParam.recipientId )) {
-            allchats.push(chat)
-          }
-          
-
-          // emit private messages to client
-          console.log(allchats);
-          socket.emit('onDisplayPrivateMessages', allchats);
-        })
-      })
+         if ((chat.conversationId === chatParam.participant_one + chatParam.participant_two) || (chat.conversationId = chatParam.participant_two + chatParam.participant_one)) {
+           allmessages.push(chat);
+         }
+       })
+      socket.emit('onDisplayPrivateMessages', allmessages);
+     })
     })
   });
 

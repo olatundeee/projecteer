@@ -46,7 +46,7 @@ router.post('/one-project', function(req, res) {
 // add new project
 
 router.post('/add-new-project', function(req, res) {
-    // console.log(req.body);
+    //console.log(req.body);
     projects.create({
         project_name: req.body.project_name,
         project_problems: req.body.project_problems,
