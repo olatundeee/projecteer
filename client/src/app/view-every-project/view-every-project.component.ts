@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { ProjectsService } from '../services/projects.service';
 import { Router } from '@angular/router';
 
@@ -17,8 +18,6 @@ export class ViewEveryProjectComponent implements OnInit {
     // retreive all projects stored in the database for display onn this view
 
     this.projectService.getAllProjects().subscribe(res => {
-      console.log(res);
-
       // store api response in orjects variable
 
       this.projects = res;
@@ -70,6 +69,19 @@ export class ViewEveryProjectComponent implements OnInit {
     localStorage.setItem('project-name', project.project_name);
 
     this.router.navigateByUrl('/dashboard/teams');
+  }
+
+  // navigate currently logged in user to project chat room
+
+  chatRoom(project) {
+    localStorage.removeItem('project-name');
+    localStorage.setItem('project-name', project.project_name);
+
+    localStorage.removeItem('project-id');
+    localStorage.setItem('project-id', project._id);
+
+    // use router to navigate to tasks list view
+    this.router.navigateByUrl('/dashboard/chat/project-chat');
   }
 
 }

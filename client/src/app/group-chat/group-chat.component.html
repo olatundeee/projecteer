@@ -1,3 +1,29 @@
-<p>
-  group-chat works!
-</p>
+<div class="container center center-align">
+
+  <div class="chat-messages-area">
+    <div class="chat-messages-list" #chatlist>
+      <div class="card message-card" *ngFor="let onemessage of messages">
+        <div class="card-action message-card">
+          <div class="left-align">
+            <b>{{onemessage.currentUser}}</b>
+          </div>
+          <div class="left-align">
+            {{onemessage.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer footer-area white red-text center center-align">
+    
+      <form class="row">
+          <div class="col l9 m9 s9">
+            <input type="text" name="message" id="message" [(ngModel)]="message" class="message-input">
+          </div>
+          <div class="col l3 m3 s3">
+            <button type="submit" class="waves-effect waves-light btn send-btn red btn-large" (click)="sendMessage()">send</button>
+          </div>
+        </form>
+  </footer>
+</div>

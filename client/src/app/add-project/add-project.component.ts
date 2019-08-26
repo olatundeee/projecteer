@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 import { ProjectsService } from '../services/projects.service';
 
@@ -11,27 +11,43 @@ import { ProjectsService } from '../services/projects.service';
 })
 export class AddProjectComponent implements OnInit {
 
+  projectname = '';
+  projectproblems = '';
+  projectsolution = '';
+  projectdescription = '';
   showSuccessMessage: boolean;
   serverErrorMessages: string;
 
   constructor(private projectService: ProjectsService) { }
 
   ngOnInit() {
-    const userId = localStorage.getItem('currentUserId');
+    // const userId = localStorage.getItem('currentUserId');
 
-    console.log(userId);
+    // console.log(userId);
+
+
   }
 
   // grab form data and send to projects service
 
-  addProject(form: NgForm) {
-    console.log(form.value);
+  addProject() {
 
-    this.projectService.addProject(form.value).subscribe(
+
+
+    /*const form = {
+      projectname: this.projectname,
+      projectsolution: this.projectsolution,
+      projectproblems: this.projectproblems,
+      projectdescription: this.projectdescription
+    };
+
+    // console.log(form);
+
+    this.projectService.addProject(form).subscribe(
       res => {
         this.showSuccessMessage = true;
         setTimeout( () => this.showSuccessMessage = false, 4000);
-        this.resetForm(form);
+        this.resetForm();
       },
       err => {
         if (err.status === 442) {
@@ -41,20 +57,33 @@ export class AddProjectComponent implements OnInit {
          console.log(err);
         }
       }
-    );
+    );*/
   }
 
   // reset form after sending data to projects service
 
-  resetForm(form: NgForm) {
-    this.projectService.selectedProject = {
-      projectname: '',
-      projectproblems: '',
-      projectsolutions: '',
-      projectdescription: ''
-    };
+  resetForm() {
 
-    form.resetForm();
+    document.getElementById('projects_name').innerText = '';
+
+    function iframeRef( frameRef ) {
+      return frameRef.contentWindow
+          ? frameRef.contentWindow.document
+          : frameRef.contentDocument;
+    }
+
+    const projectproblemsFrame = iframeRef( document.getElementById('myEditor_ifr'));
+
+    projectproblemsFrame.getElementById('tinymce').innerHTML = '';
+
+    const projectsolutionFrame = iframeRef( document.getElementById('myEditorTwo_ifr'));
+
+    projectsolutionFrame.getElementById('tinymce').innerHTML = '';
+
+    const projectdescriptionFrame = iframeRef( document.getElementById('myEditorThree_ifr'));
+
+    projectdescriptionFrame.getElementById('tinymce').innerHTML = '';
+
     this.serverErrorMessages = '';
   }
 

@@ -21,3 +21,7 @@
 .collection-item-head {
     margin: 2% !important;
 }
+
+.view-chip {
+    cursor: pointer;
+}

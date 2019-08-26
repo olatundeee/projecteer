@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
+
 // components
 
 import { AppComponent } from './app.component';
@@ -51,6 +54,9 @@ import { ViewTaskApplicantsComponent } from './view-task-applicants/view-task-ap
 import { ViewApplicantProfileComponent } from './view-applicant-profile/view-applicant-profile.component';
 import { DelegateTaskComponent } from './delegate-task/delegate-task.component';
 import { DelegateTeamMemberComponent } from './delegate-team-member/delegate-team-member.component';
+import { UserChatComponent } from './user-chat/user-chat.component';
+import { GroupChatComponent } from './group-chat/group-chat.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 // services
@@ -62,8 +68,13 @@ import { TeamsService } from './services/teams.service';
 import { TaskApplicationService } from './services/task-application.service';
 import { TaskDelegationService } from './services/task-delegation.service';
 import { ChatService } from './services/chat.service';
-import { UserChatComponent } from './user-chat/user-chat.component';
-import { GroupChatComponent } from './group-chat/group-chat.component';
+
+// socket io config
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { GroupChatMessageComponent } from './group-chat-message/group-chat-message.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [
@@ -110,7 +121,9 @@ import { GroupChatComponent } from './group-chat/group-chat.component';
     DelegateTaskComponent,
     DelegateTeamMemberComponent,
     UserChatComponent,
-    GroupChatComponent
+    GroupChatComponent,
+    ChatComponent,
+    GroupChatMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -119,7 +132,9 @@ import { GroupChatComponent } from './group-chat/group-chat.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    SocketIoModule.forRoot(config),
+    AngularEditorModule
   ],
   providers: [
     ProjectsService,

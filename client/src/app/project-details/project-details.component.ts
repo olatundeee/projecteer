@@ -24,6 +24,12 @@ export class ProjectDetailsComponent implements OnInit {
     this.project_problems = localStorage.getItem('project-problems');
 
     this.project_solutions = localStorage.getItem('project-solutions');
+
+    document.getElementById('project_description').innerHTML = this.project_description;
+
+    document.getElementById('project_problems').innerHTML = this.project_problems;
+
+    document.getElementById('project_solution').innerHTML = this.project_solutions;
   }
 
 }

@@ -17,6 +17,7 @@ var teamMembersRouter = require('./routes/team-members');
 var taskApplicationRouter = require('./routes/task-application');
 var taskDelegationRouter = require('./routes/task-delegation');
 var chatRouter = require('./routes/chat');
+var chatSupportRouter = require('./routes/chat-router');
 
 var app = express();
 
@@ -29,6 +30,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/projecteer', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -104,7 +106,8 @@ app.post('/find-task-delegation', taskDelegationRouter);
 app.post('/get-user-delegations', taskDelegationRouter);
 
 // routes for user chats
-app.use('/chat', chatRouter);
+app.post('/update-chat', chatRouter);
+app.post('/get-user-conversations', chatSupportRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

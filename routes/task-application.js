@@ -11,7 +11,7 @@ router.post('/apply-for-task', function(req, res) {
         // if an error is encountered return a status 500 error
 
         if(err) {
-            res.sendStatus(500);
+            return res.sendStatus(500);
         }
 
         res.json(taskApplication)

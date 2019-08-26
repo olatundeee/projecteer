@@ -14,6 +14,7 @@ export class ViewUserTeamsComponent implements OnInit {
   noteamCreated;
   isTeamLead;
   isNotTeamLead;
+  userIsNotTeamLead;
   member;
 
   constructor(private teamsService: TeamsService, private router: Router) { }
@@ -48,6 +49,16 @@ export class ViewUserTeamsComponent implements OnInit {
       localStorage.removeItem('currentProjectId');
       localStorage.setItem('currentProjectId', this.teams.team_projectId);
 
+      // store team lead username in local storage for easy identification
+
+      localStorage.removeItem('currentTeamLead');
+      localStorage.setItem('currentTeamLead', this.teams.team_lead);
+
+      // store team lead id in local storage for easy identification
+
+      localStorage.removeItem('currentTeamLeadId');
+      localStorage.setItem('currentTeamLeadId', this.teams.team_lead_id);
+
 
       // if a team has been created diplay the disband team button, if it hasn't display the create team button
 
@@ -64,6 +75,12 @@ export class ViewUserTeamsComponent implements OnInit {
       if (currentUser === this.teams.team_lead) {
         this.isTeamLead = true;
         this.isNotTeamLead = false;
+      }
+
+      // if current user is not the team lead display the contact team lead link
+
+      if (currentUser !== this.teams.team_lead) {
+        this.userIsNotTeamLead = true;
       }
     });
 
@@ -90,7 +107,6 @@ export class ViewUserTeamsComponent implements OnInit {
       currentProject,
       currentProjectId
     ).subscribe(res => {
-      console.log(res);
 
       this.member = res;
 
@@ -181,6 +197,23 @@ export class ViewUserTeamsComponent implements OnInit {
   viewTeamMembers() {
 
     this.router.navigateByUrl('/dashboard/teams/team-members');
+  }
+
+  // open private chat with project team lead
+
+  contactTeamLead() {
+    const currentTeamLeadId = localStorage.getItem('currentTeamLeadId');
+
+    const currentTeamLead = localStorage.getItem('currentTeamLead');
+
+    localStorage.removeItem('RecipientId');
+    localStorage.setItem('RecipientId', currentTeamLeadId);
+
+    localStorage.removeItem('Recipient');
+    localStorage.setItem('Recipient', currentTeamLead);
+
+    this.router.navigateByUrl('/dashboard/chat/user-chat');
+
   }
 
 }

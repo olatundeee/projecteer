@@ -2,26 +2,6 @@
   <div class="col l12 m12 s12">
     <h6 class="center center-align red-text">All Teams</h6>
   </div>
-    <!--<table class="centered striped">
-      <thead>
-        <tr class="red white-text">
-          <th>Team Name</th>
-          <th>Team Lead</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let team of teams">
-          <td>{{team.team_name}}</td>
-          <td>
-            {{team.team_lead}}
-          </td>
-          <td>
-            <a class="btn green view-btn lighten-2" (click)="viewTeam(team)">team details</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>-->
     <div class="card projects-table col l4 m4 s12" *ngFor="let team of teams">
         <div class="card-content red-text">
           <span class="card-title center center-align">{{team.team_name}}</span>
